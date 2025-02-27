@@ -1,0 +1,59 @@
+# System Requirements
+
+## Required System Packages
+- ffmpeg              # Required for audio processing
+- libsndfile1        # Required for soundfile
+- python3-dev        # Required for building some Python packages
+- build-essential    # Required for building some Python packages
+- portaudio19-dev    # Required for audio processing
+- cmake              # Required for building some packages
+
+## Installation on Ubuntu/Debian
+```bash
+sudo apt-get update
+sudo apt-get install -y \
+    ffmpeg \
+    libsndfile1 \
+    python3-dev \
+    build-essential \
+    portaudio19-dev \
+    cmake
+```
+
+## Installation on macOS
+```bash
+brew install \
+    ffmpeg \
+    libsndfile \
+    portaudio \
+    cmake
+```
+
+## Installation on Windows
+1. Install Visual Studio Build Tools
+2. Install ffmpeg:
+   - Download from https://www.gyan.dev/ffmpeg/builds/
+   - Add to system PATH
+3. Install cmake:
+   - Download from https://cmake.org/download/
+   - Add to system PATH
+
+## Additional Notes
+- For GPU acceleration (optional):
+  - CUDA Toolkit 11.8 or later (for PyTorch GPU support)
+  - cuDNN 8.0 or later
+  
+- For better audio processing performance:
+  - At least 4GB RAM
+  - SSD storage recommended for large audio files
+  
+- For Vosk:
+  - Minimum 2GB free disk space for models
+  
+- For Whisper:
+  - Minimum 8GB RAM
+  - GPU recommended for larger models
+  
+- For DeepSpeech:
+  - Minimum 4GB RAM
+  - GPU recommended for faster processing 

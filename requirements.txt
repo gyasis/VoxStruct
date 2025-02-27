@@ -1,0 +1,36 @@
+# Core dependencies
+python-dotenv>=1.0.0
+numpy>=1.24.3
+pandas>=2.0.3
+requests>=2.31.0
+pytest>=7.0.0  # For testing
+
+# Audio processing
+pydub>=0.25.1
+librosa>=0.10.1
+soundfile>=0.12.1
+ffmpeg-python>=0.2.0
+scipy>=1.7.0
+wave>=0.0.2
+
+# Speech recognition engines
+openai-whisper>=20231117
+vosk>=0.3.45
+coqui-stt>=1.5.0  # Replacement for DeepSpeech
+deepgram-sdk>=2.11.0
+
+# Visualization and reporting
+matplotlib>=3.5.0
+plotly>=5.0.0
+jinja2>=3.0.0
+
+# Utilities
+wget>=3.2
+tqdm>=4.65.0
+typing-extensions>=4.0.0
+pathlib>=1.0.1
+
+# Deep Learning
+torch>=2.0.0
+torchaudio>=2.0.0
+numba>=0.55.0 

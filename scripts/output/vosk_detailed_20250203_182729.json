@@ -1,0 +1,5354 @@
+[
+  {
+    "result": [
+      {
+        "conf": 0.242871,
+        "end": 0.84,
+        "start": 0.51,
+        "word": "burgen"
+      },
+      {
+        "conf": 0.740031,
+        "end": 0.968912,
+        "start": 0.84,
+        "word": "wir"
+      },
+      {
+        "conf": 0.728026,
+        "end": 1.35,
+        "start": 0.968912,
+        "word": "haben"
+      },
+      {
+        "conf": 0.614799,
+        "end": 1.95,
+        "start": 1.77,
+        "word": "ihr"
+      },
+      {
+        "conf": 0.341634,
+        "end": 2.13,
+        "start": 1.95,
+        "word": "net"
+      },
+      {
+        "conf": 1.0,
+        "end": 2.7,
+        "start": 2.13,
+        "word": "nein"
+      },
+      {
+        "conf": 0.215513,
+        "end": 3.562066,
+        "start": 3.27,
+        "word": "hebt"
+      },
+      {
+        "conf": 0.430751,
+        "end": 3.99,
+        "start": 3.562066,
+        "word": "break"
+      },
+      {
+        "conf": 0.671572,
+        "end": 4.62,
+        "start": 4.47,
+        "word": "wenn"
+      },
+      {
+        "conf": 1.0,
+        "end": 4.907057,
+        "start": 4.748087,
+        "word": "wir"
+      },
+      {
+        "conf": 0.358475,
+        "end": 5.31,
+        "start": 5.1,
+        "word": "her"
+      }
+    ],
+    "text": "burgen wir haben ihr net nein hebt break wenn wir her"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.459054,
+        "end": 6.54,
+        "start": 6.48,
+        "word": "the"
+      },
+      {
+        "conf": 0.506534,
+        "end": 7.56,
+        "start": 6.556228,
+        "word": "bauingenieure"
+      },
+      {
+        "conf": 0.912315,
+        "end": 7.95,
+        "start": 7.65,
+        "word": "phase"
+      },
+      {
+        "conf": 1.0,
+        "end": 8.13,
+        "start": 7.95,
+        "word": "der"
+      },
+      {
+        "conf": 0.380706,
+        "end": 8.873024,
+        "start": 8.22,
+        "word": "energielücke"
+      },
+      {
+        "conf": 0.332881,
+        "end": 9.39,
+        "start": 8.873024,
+        "word": "gebracht"
+      },
+      {
+        "conf": 0.512407,
+        "end": 10.68,
+        "start": 10.26,
+        "word": "julia"
+      },
+      {
+        "conf": 1.0,
+        "end": 11.1,
+        "start": 10.68,
+        "word": "wölfe"
+      },
+      {
+        "conf": 0.342784,
+        "end": 11.43,
+        "start": 11.1,
+        "word": "basis"
+      },
+      {
+        "conf": 1.0,
+        "end": 12.15,
+        "start": 11.504885,
+        "word": "gewährleisten"
+      }
+    ],
+    "text": "the bauingenieure phase der energielücke gebracht julia wölfe basis gewährleisten"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.368408,
+        "end": 12.96,
+        "start": 12.84,
+        "word": "er"
+      },
+      {
+        "conf": 0.451486,
+        "end": 13.406318,
+        "start": 13.101826,
+        "word": "wählst"
+      },
+      {
+        "conf": 0.978232,
+        "end": 13.68,
+        "start": 13.406318,
+        "word": "etwa"
+      },
+      {
+        "conf": 0.980859,
+        "end": 14.01,
+        "start": 13.68,
+        "word": "raus"
+      },
+      {
+        "conf": 1.0,
+        "end": 14.46,
+        "start": 14.1,
+        "word": "jede"
+      },
+      {
+        "conf": 1.0,
+        "end": 14.715515,
+        "start": 14.46,
+        "word": "menge"
+      },
+      {
+        "conf": 0.544602,
+        "end": 15.010646,
+        "start": 14.91742,
+        "word": "der"
+      },
+      {
+        "conf": 0.516787,
+        "end": 15.48,
+        "start": 15.03,
+        "word": "gemäß"
+      },
+      {
+        "conf": 0.589166,
+        "end": 15.96,
+        "start": 15.57,
+        "word": "art"
+      }
+    ],
+    "text": "er wählst etwa raus jede menge der gemäß art"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 17.67,
+        "start": 17.4,
+        "word": "number"
+      },
+      {
+        "conf": 1.0,
+        "end": 18.09,
+        "start": 17.67,
+        "word": "one"
+      }
+    ],
+    "text": "number one"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.583531,
+        "end": 19.430226,
+        "start": 19.26,
+        "word": "um"
+      },
+      {
+        "conf": 0.416469,
+        "end": 19.679848,
+        "start": 19.430226,
+        "word": "umliegenden"
+      },
+      {
+        "conf": 0.583531,
+        "end": 19.77,
+        "start": 19.679848,
+        "word": "den"
+      },
+      {
+        "conf": 0.919857,
+        "end": 20.1,
+        "start": 19.77,
+        "word": "bergen"
+      },
+      {
+        "conf": 0.702451,
+        "end": 20.22,
+        "start": 20.1,
+        "word": "ich"
+      },
+      {
+        "conf": 0.219047,
+        "end": 20.55,
+        "start": 20.22,
+        "word": "enthalte"
+      },
+      {
+        "conf": 1.0,
+        "end": 20.91,
+        "start": 20.55,
+        "word": "weniger"
+      },
+      {
+        "conf": 1.0,
+        "end": 21.12,
+        "start": 20.91,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 21.39,
+        "start": 21.12,
+        "word": "unten"
+      },
+      {
+        "conf": 1.0,
+        "end": 21.51,
+        "start": 21.39,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 21.93,
+        "start": 21.51,
+        "word": "tal"
+      }
+    ],
+    "text": "um umliegenden den bergen ich enthalte weniger als unten im tal"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.419121,
+        "end": 26.273505,
+        "start": 25.95,
+        "word": "women"
+      },
+      {
+        "conf": 1.0,
+        "end": 26.4,
+        "start": 26.273505,
+        "word": "in"
+      },
+      {
+        "conf": 0.714625,
+        "end": 26.73,
+        "start": 26.4,
+        "word": "bergen"
+      },
+      {
+        "conf": 1.0,
+        "end": 26.85,
+        "start": 26.73,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 26.97,
+        "start": 26.85,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 27.18,
+        "start": 26.97,
+        "word": "heute"
+      },
+      {
+        "conf": 0.631647,
+        "end": 27.42,
+        "start": 27.18,
+        "word": "nächste"
+      },
+      {
+        "conf": 0.793534,
+        "end": 27.69,
+        "start": 27.42,
+        "word": "windig"
+      },
+      {
+        "conf": 0.796169,
+        "end": 27.9,
+        "start": 27.69,
+        "word": "und"
+      },
+      {
+        "conf": 0.796169,
+        "end": 28.23,
+        "start": 27.9,
+        "word": "nimmt"
+      },
+      {
+        "conf": 0.796169,
+        "end": 28.5,
+        "start": 28.23,
+        "word": "an"
+      }
+    ],
+    "text": "women in bergen es ist heute nächste windig und nimmt an"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.356412,
+        "end": 30.09,
+        "start": 29.7,
+        "word": "normal"
+      },
+      {
+        "conf": 1.0,
+        "end": 30.6,
+        "start": 30.104896,
+        "word": "du"
+      },
+      {
+        "conf": 0.502155,
+        "end": 31.501838,
+        "start": 31.26,
+        "word": "jetzt"
+      },
+      {
+        "conf": 0.395947,
+        "end": 31.65,
+        "start": 31.501838,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.7292,
+        "end": 31.945521,
+        "start": 31.65,
+        "word": "kühler"
+      },
+      {
+        "conf": 0.893468,
+        "end": 32.25,
+        "start": 31.945521,
+        "word": "halten"
+      },
+      {
+        "conf": 1.0,
+        "end": 32.37,
+        "start": 32.25,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 33.0,
+        "start": 32.37,
+        "word": "deutschland"
+      }
+    ],
+    "text": "normal du jetzt nicht kühler halten die deutschland"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 37.44,
+        "start": 37.26,
+        "word": "hier"
+      },
+      {
+        "conf": 1.0,
+        "end": 37.59,
+        "start": 37.44,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 37.68,
+        "start": 37.59,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 37.86,
+        "start": 37.68,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 37.98,
+        "start": 37.86,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 38.19,
+        "start": 37.98,
+        "word": "kühl"
+      },
+      {
+        "conf": 0.696638,
+        "end": 38.46,
+        "start": 38.19,
+        "word": "wen"
+      },
+      {
+        "conf": 1.0,
+        "end": 39.27,
+        "start": 38.46,
+        "word": "süddeutschland"
+      },
+      {
+        "conf": 0.647131,
+        "end": 40.32,
+        "start": 40.14,
+        "word": "nur"
+      },
+      {
+        "conf": 0.849146,
+        "end": 40.60177,
+        "start": 40.335146,
+        "word": "bad"
+      },
+      {
+        "conf": 0.145461,
+        "end": 41.1,
+        "start": 40.60177,
+        "word": "brandy"
+      },
+      {
+        "conf": 1.0,
+        "end": 42.63,
+        "start": 42.21,
+        "word": "sammelte"
+      },
+      {
+        "conf": 0.728408,
+        "end": 42.78,
+        "start": 42.63,
+        "word": "den"
+      },
+      {
+        "conf": 0.750381,
+        "end": 43.23,
+        "start": 42.78,
+        "word": "washington"
+      },
+      {
+        "conf": 0.38175,
+        "end": 43.438345,
+        "start": 43.23,
+        "word": "heil"
+      },
+      {
+        "conf": 0.559417,
+        "end": 43.704247,
+        "start": 43.438345,
+        "word": "werden"
+      },
+      {
+        "conf": 0.781477,
+        "end": 43.799901,
+        "start": 43.704247,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 44.4,
+        "start": 43.799901,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "hier ist es nicht so kühl wen süddeutschland nur bad brandy sammelte den washington heil werden in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 49.23,
+        "start": 49.08,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 49.53,
+        "start": 49.23,
+        "word": "sommer"
+      },
+      {
+        "conf": 1.0,
+        "end": 49.68,
+        "start": 49.53,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 49.8,
+        "start": 49.68,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 49.89,
+        "start": 49.8,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 50.31,
+        "start": 49.89,
+        "word": "washington"
+      },
+      {
+        "conf": 1.0,
+        "end": 50.49,
+        "start": 50.31,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 50.58,
+        "start": 50.49,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 50.82,
+        "start": 50.58,
+        "word": "heiß"
+      },
+      {
+        "conf": 1.0,
+        "end": 50.94,
+        "start": 50.82,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 51.03,
+        "start": 50.94,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 51.6,
+        "start": 51.03,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "im sommer ist es in washington nicht so heiß wie in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.814301,
+        "end": 53.13,
+        "start": 52.8,
+        "word": "dabei"
+      },
+      {
+        "conf": 0.504992,
+        "end": 53.7,
+        "start": 53.13,
+        "word": "bohrer"
+      }
+    ],
+    "text": "dabei bohrer"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 54.99,
+        "start": 54.78,
+        "word": "ihre"
+      },
+      {
+        "conf": 1.0,
+        "end": 55.622043,
+        "start": 54.99,
+        "word": "schreibmaschine"
+      },
+      {
+        "conf": 0.783508,
+        "end": 55.74,
+        "start": 55.622043,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 56.01,
+        "start": 55.746497,
+        "word": "besser"
+      },
+      {
+        "conf": 1.0,
+        "end": 56.19,
+        "start": 56.01,
+        "word": "als"
+      },
+      {
+        "conf": 0.592361,
+        "end": 56.28,
+        "start": 56.19,
+        "word": "in"
+      },
+      {
+        "conf": 0.932782,
+        "end": 56.61,
+        "start": 56.28,
+        "word": "eine"
+      }
+    ],
+    "text": "ihre schreibmaschine ist besser als in eine"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 61.8,
+        "start": 61.62,
+        "word": "ihre"
+      },
+      {
+        "conf": 1.0,
+        "end": 62.37,
+        "start": 61.8,
+        "word": "schreibmaschine"
+      },
+      {
+        "conf": 0.745763,
+        "end": 62.457231,
+        "start": 62.37,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 62.61,
+        "start": 62.457231,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 62.7,
+        "start": 62.61,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 62.85,
+        "start": 62.7,
+        "word": "gut"
+      },
+      {
+        "conf": 1.0,
+        "end": 62.94,
+        "start": 62.85,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 63.33,
+        "start": 62.94,
+        "word": "meine"
+      },
+      {
+        "conf": 0.221851,
+        "end": 64.595054,
+        "start": 64.26,
+        "word": "norbert"
+      },
+      {
+        "conf": 0.585323,
+        "end": 65.22,
+        "start": 64.595054,
+        "word": "dabei"
+      },
+      {
+        "conf": 1.0,
+        "end": 66.27,
+        "start": 66.06,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 66.63,
+        "start": 66.27,
+        "word": "weniger"
+      },
+      {
+        "conf": 0.627874,
+        "end": 67.042632,
+        "start": 66.63,
+        "word": "verkehrs"
+      },
+      {
+        "conf": 0.326614,
+        "end": 67.123557,
+        "start": 67.042632,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 67.32,
+        "start": 67.228162,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 67.86,
+        "start": 67.32,
+        "word": "autobahn"
+      }
+    ],
+    "text": "ihre schreibmaschine ist nicht so gut wie meine norbert dabei ist weniger verkehrs ist der autobahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 71.97,
+        "start": 71.85,
+        "word": "hier"
+      },
+      {
+        "conf": 1.0,
+        "end": 72.06,
+        "start": 71.97,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 72.21,
+        "start": 72.06,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 72.3,
+        "start": 72.21,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 72.51,
+        "start": 72.3,
+        "word": "wenig"
+      },
+      {
+        "conf": 1.0,
+        "end": 72.84,
+        "start": 72.51,
+        "word": "verkehr"
+      },
+      {
+        "conf": 0.982799,
+        "end": 72.96,
+        "start": 72.84,
+        "word": "wie"
+      },
+      {
+        "conf": 0.864247,
+        "end": 73.091177,
+        "start": 72.96,
+        "word": "ab"
+      },
+      {
+        "conf": 0.435359,
+        "end": 73.168147,
+        "start": 73.091177,
+        "word": "da"
+      },
+      {
+        "conf": 0.864247,
+        "end": 73.71,
+        "start": 73.168147,
+        "word": "autobahn"
+      },
+      {
+        "conf": 0.269009,
+        "end": 75.18542,
+        "start": 74.73,
+        "word": "nochmals"
+      },
+      {
+        "conf": 1.0,
+        "end": 75.75,
+        "start": 75.18542,
+        "word": "sex"
+      },
+      {
+        "conf": 1.0,
+        "end": 76.59,
+        "start": 76.44,
+        "word": "es"
+      },
+      {
+        "conf": 0.870924,
+        "end": 76.89,
+        "start": 76.59,
+        "word": "weise"
+      },
+      {
+        "conf": 0.870924,
+        "end": 77.07,
+        "start": 76.89,
+        "word": "herrn"
+      },
+      {
+        "conf": 1.0,
+        "end": 77.37,
+        "start": 77.07,
+        "word": "gefällt"
+      },
+      {
+        "conf": 1.0,
+        "end": 77.52,
+        "start": 77.37,
+        "word": "mir"
+      },
+      {
+        "conf": 1.0,
+        "end": 77.79,
+        "start": 77.52,
+        "word": "besser"
+      },
+      {
+        "conf": 1.0,
+        "end": 77.91,
+        "start": 77.79,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 78.09,
+        "start": 77.91,
+        "word": "das"
+      },
+      {
+        "conf": 0.692228,
+        "end": 78.63,
+        "start": 78.09,
+        "word": "farbige"
+      }
+    ],
+    "text": "hier ist nicht so wenig verkehr wie ab da autobahn nochmals sex es weise herrn gefällt mir besser als das farbige"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 83.52,
+        "start": 83.37,
+        "word": "das"
+      },
+      {
+        "conf": 0.867235,
+        "end": 83.85,
+        "start": 83.52,
+        "word": "weiße"
+      },
+      {
+        "conf": 0.752132,
+        "end": 84.03,
+        "start": 83.85,
+        "word": "hemd"
+      },
+      {
+        "conf": 1.0,
+        "end": 84.33,
+        "start": 84.03,
+        "word": "gefällt"
+      },
+      {
+        "conf": 1.0,
+        "end": 84.42,
+        "start": 84.33,
+        "word": "mir"
+      },
+      {
+        "conf": 1.0,
+        "end": 84.54,
+        "start": 84.42,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 84.63,
+        "start": 84.54,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 84.78,
+        "start": 84.63,
+        "word": "gut"
+      },
+      {
+        "conf": 0.80819,
+        "end": 84.96,
+        "start": 84.828091,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 85.2,
+        "start": 84.96,
+        "word": "war"
+      },
+      {
+        "conf": 1.0,
+        "end": 85.47,
+        "start": 85.2,
+        "word": "wir"
+      },
+      {
+        "conf": 0.993391,
+        "end": 86.76,
+        "start": 86.55,
+        "word": "noch"
+      },
+      {
+        "conf": 0.298656,
+        "end": 87.36,
+        "start": 86.76,
+        "word": "börne"
+      },
+      {
+        "conf": 1.0,
+        "end": 89.04,
+        "start": 88.89,
+        "word": "wenn"
+      },
+      {
+        "conf": 1.0,
+        "end": 89.16,
+        "start": 89.04,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 89.469536,
+        "start": 89.16,
+        "word": "doping"
+      },
+      {
+        "conf": 0.317979,
+        "end": 89.79,
+        "start": 89.49,
+        "word": "wollen"
+      },
+      {
+        "conf": 0.917461,
+        "end": 90.18,
+        "start": 89.79,
+        "word": "größer"
+      },
+      {
+        "conf": 0.982049,
+        "end": 90.377988,
+        "start": 90.18,
+        "word": "als"
+      },
+      {
+        "conf": 0.430115,
+        "end": 90.63,
+        "start": 90.54,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 91.17,
+        "start": 90.63,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "das weiße hemd gefällt mir nicht so gut das war wir noch börne wenn der doping wollen größer als in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 96.09,
+        "start": 95.88,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 96.18,
+        "start": 96.09,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 96.27,
+        "start": 96.18,
+        "word": "der"
+      },
+      {
+        "conf": 0.586871,
+        "end": 96.54,
+        "start": 96.27,
+        "word": "dummen"
+      },
+      {
+        "conf": 1.0,
+        "end": 96.9,
+        "start": 96.54,
+        "word": "könig"
+      },
+      {
+        "conf": 1.0,
+        "end": 96.99,
+        "start": 96.9,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 97.2,
+        "start": 96.99,
+        "word": "groß"
+      },
+      {
+        "conf": 1.0,
+        "end": 97.29,
+        "start": 97.2,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 97.41,
+        "start": 97.29,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 97.5,
+        "start": 97.41,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 98.01,
+        "start": 97.5,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "ist in der dummen könig so groß wie der in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.73173,
+        "end": 99.63,
+        "start": 99.21,
+        "word": "name"
+      },
+      {
+        "conf": 1.0,
+        "end": 99.93,
+        "start": 99.63,
+        "word": "a"
+      }
+    ],
+    "text": "name a"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.866931,
+        "end": 101.79,
+        "start": 101.52,
+        "word": "denken"
+      },
+      {
+        "conf": 0.687335,
+        "end": 101.88,
+        "start": 101.79,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 102.12,
+        "start": 101.88,
+        "word": "diesen"
+      },
+      {
+        "conf": 0.618623,
+        "end": 102.42,
+        "start": 102.12,
+        "word": "stadt"
+      },
+      {
+        "conf": 1.0,
+        "end": 102.66,
+        "start": 102.42,
+        "word": "besser"
+      },
+      {
+        "conf": 1.0,
+        "end": 102.84,
+        "start": 102.66,
+        "word": "als"
+      },
+      {
+        "conf": 0.524073,
+        "end": 102.99,
+        "start": 102.87,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 103.32,
+        "start": 102.99,
+        "word": "anderen"
+      },
+      {
+        "conf": 1.0,
+        "end": 103.56,
+        "start": 103.32,
+        "word": "da"
+      }
+    ],
+    "text": "denken wir diesen stadt besser als in anderen da"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.430339,
+        "end": 108.33,
+        "start": 108.03,
+        "word": "winter"
+      },
+      {
+        "conf": 1.0,
+        "end": 108.57,
+        "start": 108.33,
+        "word": "diesen"
+      },
+      {
+        "conf": 0.867008,
+        "end": 108.81,
+        "start": 108.57,
+        "word": "stoff"
+      },
+      {
+        "conf": 0.867008,
+        "end": 108.96,
+        "start": 108.81,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 109.05,
+        "start": 108.96,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 109.17,
+        "start": 109.05,
+        "word": "gut"
+      },
+      {
+        "conf": 1.0,
+        "end": 109.23,
+        "start": 109.17,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 109.38,
+        "start": 109.23,
+        "word": "den"
+      },
+      {
+        "conf": 0.703385,
+        "end": 109.65,
+        "start": 109.38,
+        "word": "anderen"
+      },
+      {
+        "conf": 0.783445,
+        "end": 109.92,
+        "start": 109.65,
+        "word": "da"
+      }
+    ],
+    "text": "winter diesen stoff nicht so gut wie den anderen da"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.559402,
+        "end": 111.596228,
+        "start": 111.429551,
+        "word": "wenn"
+      },
+      {
+        "conf": 1.0,
+        "end": 112.17,
+        "start": 111.596228,
+        "word": "nein"
+      },
+      {
+        "conf": 0.436329,
+        "end": 113.4,
+        "start": 113.16,
+        "word": "diese"
+      },
+      {
+        "conf": 1.0,
+        "end": 113.79,
+        "start": 113.410715,
+        "word": "zeitung"
+      },
+      {
+        "conf": 1.0,
+        "end": 113.91,
+        "start": 113.79,
+        "word": "ist"
+      },
+      {
+        "conf": 0.818164,
+        "end": 114.39,
+        "start": 113.91,
+        "word": "interessant"
+      },
+      {
+        "conf": 0.675578,
+        "end": 114.69,
+        "start": 114.39,
+        "word": "halte"
+      },
+      {
+        "conf": 1.0,
+        "end": 115.14,
+        "start": 114.69,
+        "word": "frankfurter"
+      },
+      {
+        "conf": 1.0,
+        "end": 115.74,
+        "start": 115.14,
+        "word": "allgemeine"
+      }
+    ],
+    "text": "wenn nein diese zeitung ist interessant halte frankfurter allgemeine"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 120.75,
+        "start": 120.54,
+        "word": "diese"
+      },
+      {
+        "conf": 1.0,
+        "end": 121.05,
+        "start": 120.75,
+        "word": "zeitung"
+      },
+      {
+        "conf": 1.0,
+        "end": 121.14,
+        "start": 121.05,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 121.291721,
+        "start": 121.14,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.793079,
+        "end": 121.349202,
+        "start": 121.291721,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 121.74,
+        "start": 121.349202,
+        "word": "interessant"
+      },
+      {
+        "conf": 0.739464,
+        "end": 121.8,
+        "start": 121.74,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 121.89,
+        "start": 121.8,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 122.31,
+        "start": 121.89,
+        "word": "frankfurter"
+      },
+      {
+        "conf": 1.0,
+        "end": 122.88,
+        "start": 122.31,
+        "word": "allgemeine"
+      }
+    ],
+    "text": "diese zeitung ist nicht so interessant wie die frankfurter allgemeine"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.396299,
+        "end": 124.38,
+        "start": 124.08,
+        "word": "namen"
+      },
+      {
+        "conf": 0.240977,
+        "end": 124.92,
+        "start": 124.38,
+        "word": "leute"
+      },
+      {
+        "conf": 1.0,
+        "end": 126.15,
+        "start": 125.88,
+        "word": "dieser"
+      },
+      {
+        "conf": 0.663069,
+        "end": 126.42,
+        "start": 126.15,
+        "word": "brief"
+      },
+      {
+        "conf": 0.663069,
+        "end": 126.57,
+        "start": 126.42,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 127.14,
+        "start": 126.57,
+        "word": "augenblicklich"
+      },
+      {
+        "conf": 1.0,
+        "end": 127.41,
+        "start": 127.14,
+        "word": "bringen"
+      },
+      {
+        "conf": 1.0,
+        "end": 127.53,
+        "start": 127.41,
+        "word": "da"
+      },
+      {
+        "conf": 1.0,
+        "end": 127.65,
+        "start": 127.53,
+        "word": "und"
+      },
+      {
+        "conf": 1.0,
+        "end": 128.04,
+        "start": 127.65,
+        "word": "wichtiger"
+      },
+      {
+        "conf": 1.0,
+        "end": 128.160161,
+        "start": 128.04,
+        "word": "als"
+      },
+      {
+        "conf": 0.400389,
+        "end": 128.22,
+        "start": 128.160161,
+        "word": "er"
+      },
+      {
+        "conf": 0.384627,
+        "end": 128.94,
+        "start": 128.230913,
+        "word": "ferngespräch"
+      }
+    ],
+    "text": "namen leute dieser brief ist augenblicklich bringen da und wichtiger als er ferngespräch"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 134.67,
+        "start": 134.49,
+        "word": "dieser"
+      },
+      {
+        "conf": 1.0,
+        "end": 134.91,
+        "start": 134.67,
+        "word": "bericht"
+      },
+      {
+        "conf": 1.0,
+        "end": 135.03,
+        "start": 134.91,
+        "word": "ist"
+      },
+      {
+        "conf": 0.324331,
+        "end": 135.48,
+        "start": 135.03,
+        "word": "augenblicke"
+      },
+      {
+        "conf": 0.33521,
+        "end": 135.63,
+        "start": 135.48,
+        "word": "nich"
+      },
+      {
+        "conf": 0.725673,
+        "end": 135.78,
+        "start": 135.642686,
+        "word": "so"
+      },
+      {
+        "conf": 0.833392,
+        "end": 136.108154,
+        "start": 135.78,
+        "word": "dringend"
+      },
+      {
+        "conf": 1.0,
+        "end": 136.41,
+        "start": 136.108154,
+        "word": "wichtig"
+      },
+      {
+        "conf": 1.0,
+        "end": 136.62,
+        "start": 136.41,
+        "word": "wir"
+      },
+      {
+        "conf": 0.751987,
+        "end": 137.37,
+        "start": 136.62,
+        "word": "ferngespräch"
+      }
+    ],
+    "text": "dieser bericht ist augenblicke nich so dringend wichtig wir ferngespräch"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 138.72,
+        "start": 138.48,
+        "word": "na"
+      },
+      {
+        "conf": 1.0,
+        "end": 139.11,
+        "start": 138.72,
+        "word": "prima"
+      },
+      {
+        "conf": 1.0,
+        "end": 139.38,
+        "start": 139.11,
+        "word": "aber"
+      }
+    ],
+    "text": "na prima aber"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 140.91,
+        "start": 140.76,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 141.45,
+        "start": 140.91,
+        "word": "material"
+      },
+      {
+        "conf": 1.0,
+        "end": 141.72,
+        "start": 141.45,
+        "word": "dieses"
+      },
+      {
+        "conf": 1.0,
+        "end": 142.05,
+        "start": 141.72,
+        "word": "blauen"
+      },
+      {
+        "conf": 0.796404,
+        "end": 142.47,
+        "start": 142.05,
+        "word": "anzug"
+      },
+      {
+        "conf": 1.0,
+        "end": 142.62,
+        "start": 142.47,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 143.01,
+        "start": 142.62,
+        "word": "leichter"
+      },
+      {
+        "conf": 1.0,
+        "end": 143.16,
+        "start": 143.01,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 143.37041,
+        "start": 143.16,
+        "word": "das"
+      },
+      {
+        "conf": 0.468694,
+        "end": 143.514199,
+        "start": 143.37041,
+        "word": "ist"
+      },
+      {
+        "conf": 0.787051,
+        "end": 143.94,
+        "start": 143.514199,
+        "word": "grau"
+      }
+    ],
+    "text": "das material dieses blauen anzug ist leichter als das ist grau"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 150.63,
+        "start": 150.48,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 151.11,
+        "start": 150.63,
+        "word": "material"
+      },
+      {
+        "conf": 1.0,
+        "end": 151.35,
+        "start": 151.11,
+        "word": "dieses"
+      },
+      {
+        "conf": 1.0,
+        "end": 151.65,
+        "start": 151.35,
+        "word": "blauen"
+      },
+      {
+        "conf": 1.0,
+        "end": 152.07,
+        "start": 151.65,
+        "word": "anzug"
+      },
+      {
+        "conf": 0.595183,
+        "end": 152.16,
+        "start": 152.07,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 152.34,
+        "start": 152.172144,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 152.46,
+        "start": 152.34,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 152.7,
+        "start": 152.46,
+        "word": "leicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 152.76,
+        "start": 152.7,
+        "word": "wie"
+      },
+      {
+        "conf": 0.73801,
+        "end": 152.967378,
+        "start": 152.76,
+        "word": "das"
+      },
+      {
+        "conf": 0.65386,
+        "end": 153.09,
+        "start": 152.97,
+        "word": "es"
+      },
+      {
+        "conf": 0.745058,
+        "end": 153.51,
+        "start": 153.099097,
+        "word": "grauen"
+      }
+    ],
+    "text": "das material dieses blauen anzug es nicht so leicht wie das es grauen"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 155.16,
+        "start": 154.68,
+        "word": "nochmals"
+      },
+      {
+        "conf": 1.0,
+        "end": 155.73,
+        "start": 155.16,
+        "word": "wow"
+      }
+    ],
+    "text": "nochmals wow"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.384898,
+        "end": 157.71,
+        "start": 157.59,
+        "word": "wir"
+      },
+      {
+        "conf": 0.465248,
+        "end": 158.187671,
+        "start": 157.92,
+        "word": "nieder"
+      },
+      {
+        "conf": 0.830797,
+        "end": 158.395869,
+        "start": 158.187671,
+        "word": "wieder"
+      },
+      {
+        "conf": 0.576046,
+        "end": 159.0,
+        "start": 158.4,
+        "word": "straßenbahn"
+      },
+      {
+        "conf": 0.576046,
+        "end": 159.12,
+        "start": 159.0,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 159.27,
+        "start": 159.12,
+        "word": "mit"
+      },
+      {
+        "conf": 0.751264,
+        "end": 159.36,
+        "start": 159.27,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 159.93,
+        "start": 159.36,
+        "word": "autobus"
+      }
+    ],
+    "text": "wir nieder wieder straßenbahn als mit dem autobus"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 164.49,
+        "start": 164.34,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 164.73,
+        "start": 164.49,
+        "word": "waren"
+      },
+      {
+        "conf": 1.0,
+        "end": 164.88,
+        "start": 164.73,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 164.97,
+        "start": 164.88,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 165.15,
+        "start": 164.97,
+        "word": "gern"
+      },
+      {
+        "conf": 1.0,
+        "end": 165.3,
+        "start": 165.15,
+        "word": "wieder"
+      },
+      {
+        "conf": 1.0,
+        "end": 165.81,
+        "start": 165.3,
+        "word": "straßenbahn"
+      },
+      {
+        "conf": 1.0,
+        "end": 165.9,
+        "start": 165.81,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 166.05,
+        "start": 165.9,
+        "word": "mit"
+      },
+      {
+        "conf": 1.0,
+        "end": 166.17,
+        "start": 166.05,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 166.74,
+        "start": 166.17,
+        "word": "autobus"
+      }
+    ],
+    "text": "wir waren nicht so gern wieder straßenbahn wir mit dem autobus"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 169.110923,
+        "start": 168.45,
+        "word": "doppelbett"
+      },
+      {
+        "conf": 0.796403,
+        "end": 169.44,
+        "start": 169.110923,
+        "word": "sie"
+      },
+      {
+        "conf": 0.71568,
+        "end": 170.64,
+        "start": 170.49,
+        "word": "er"
+      },
+      {
+        "conf": 0.71568,
+        "end": 170.79,
+        "start": 170.64,
+        "word": "will"
+      },
+      {
+        "conf": 1.0,
+        "end": 171.03,
+        "start": 170.792798,
+        "word": "mehr"
+      },
+      {
+        "conf": 1.0,
+        "end": 171.21,
+        "start": 171.03,
+        "word": "von"
+      },
+      {
+        "conf": 0.613725,
+        "end": 171.36,
+        "start": 171.21,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 171.75,
+        "start": 171.36,
+        "word": "deutschen"
+      },
+      {
+        "conf": 1.0,
+        "end": 172.05,
+        "start": 171.75,
+        "word": "wein"
+      },
+      {
+        "conf": 1.0,
+        "end": 172.23,
+        "start": 172.05,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 172.35,
+        "start": 172.23,
+        "word": "von"
+      },
+      {
+        "conf": 0.68856,
+        "end": 172.47,
+        "start": 172.35,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 173.07,
+        "start": 172.47,
+        "word": "französischen"
+      },
+      {
+        "conf": 1.0,
+        "end": 173.55,
+        "start": 173.07,
+        "word": "kaufen"
+      }
+    ],
+    "text": "doppelbett sie er will mehr von den deutschen wein als von dem französischen kaufen"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 178.53,
+        "start": 178.38,
+        "word": "er"
+      },
+      {
+        "conf": 1.0,
+        "end": 178.68,
+        "start": 178.53,
+        "word": "will"
+      },
+      {
+        "conf": 1.0,
+        "end": 178.77,
+        "start": 178.68,
+        "word": "ich"
+      },
+      {
+        "conf": 1.0,
+        "end": 178.86,
+        "start": 178.77,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 179.04,
+        "start": 178.86,
+        "word": "viel"
+      },
+      {
+        "conf": 1.0,
+        "end": 179.13,
+        "start": 179.04,
+        "word": "von"
+      },
+      {
+        "conf": 0.825663,
+        "end": 179.22,
+        "start": 179.13,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 179.55,
+        "start": 179.22,
+        "word": "deutschen"
+      },
+      {
+        "conf": 1.0,
+        "end": 179.76,
+        "start": 179.55,
+        "word": "bahn"
+      },
+      {
+        "conf": 1.0,
+        "end": 179.85,
+        "start": 179.76,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 180.0,
+        "start": 179.85,
+        "word": "von"
+      },
+      {
+        "conf": 0.732222,
+        "end": 180.09,
+        "start": 180.0,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 180.63,
+        "start": 180.09,
+        "word": "französischen"
+      },
+      {
+        "conf": 1.0,
+        "end": 181.08,
+        "start": 180.63,
+        "word": "kaufen"
+      }
+    ],
+    "text": "er will ich so viel von den deutschen bahn die von den französischen kaufen"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.385349,
+        "end": 182.7,
+        "start": 182.28,
+        "word": "norbert"
+      },
+      {
+        "conf": 0.385349,
+        "end": 182.97,
+        "start": 182.7,
+        "word": "bolz"
+      },
+      {
+        "conf": 0.775704,
+        "end": 183.3,
+        "start": 182.97,
+        "word": "sie"
+      }
+    ],
+    "text": "norbert bolz sie"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.514133,
+        "end": 184.92,
+        "start": 184.62,
+        "word": "unser"
+      },
+      {
+        "conf": 1.0,
+        "end": 185.251611,
+        "start": 184.923105,
+        "word": "küche"
+      },
+      {
+        "conf": 0.747187,
+        "end": 185.34,
+        "start": 185.251611,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 185.85,
+        "start": 185.34,
+        "word": "gemütliche"
+      },
+      {
+        "conf": 1.0,
+        "end": 185.97,
+        "start": 185.85,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 186.15,
+        "start": 185.97,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 186.75,
+        "start": 186.15,
+        "word": "wohnzimmer"
+      }
+    ],
+    "text": "unser küche ist gemütliche als das wohnzimmer"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 191.25,
+        "start": 190.89,
+        "word": "unsere"
+      },
+      {
+        "conf": 1.0,
+        "end": 191.52,
+        "start": 191.25,
+        "word": "küche"
+      },
+      {
+        "conf": 0.729961,
+        "end": 191.61,
+        "start": 191.52,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 191.76,
+        "start": 191.61,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 191.85,
+        "start": 191.76,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 192.18,
+        "start": 191.85,
+        "word": "gemütlich"
+      },
+      {
+        "conf": 1.0,
+        "end": 192.27,
+        "start": 192.18,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 192.39,
+        "start": 192.27,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 192.93,
+        "start": 192.39,
+        "word": "wohnzimmer"
+      },
+      {
+        "conf": 0.773305,
+        "end": 194.31,
+        "start": 193.95,
+        "word": "number"
+      },
+      {
+        "conf": 0.34534,
+        "end": 194.58,
+        "start": 194.4,
+        "word": "f"
+      },
+      {
+        "conf": 0.688016,
+        "end": 194.94,
+        "start": 194.583867,
+        "word": "d"
+      }
+    ],
+    "text": "unsere küche ist nicht so gemütlich wie das wohnzimmer number f d"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 196.44,
+        "start": 196.35,
+        "word": "in"
+      },
+      {
+        "conf": 0.887786,
+        "end": 196.56,
+        "start": 196.44,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 196.8,
+        "start": 196.56,
+        "word": "neuen"
+      },
+      {
+        "conf": 1.0,
+        "end": 197.25,
+        "start": 196.8,
+        "word": "italien"
+      },
+      {
+        "conf": 1.0,
+        "end": 197.7,
+        "start": 197.25,
+        "word": "häusern"
+      },
+      {
+        "conf": 1.0,
+        "end": 197.85,
+        "start": 197.7,
+        "word": "sind"
+      },
+      {
+        "conf": 1.0,
+        "end": 197.94,
+        "start": 197.85,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 198.24,
+        "start": 197.94,
+        "word": "mieten"
+      },
+      {
+        "conf": 1.0,
+        "end": 198.54,
+        "start": 198.24,
+        "word": "höher"
+      },
+      {
+        "conf": 1.0,
+        "end": 198.75,
+        "start": 198.54,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 198.84,
+        "start": 198.75,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 198.96,
+        "start": 198.84,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 199.47,
+        "start": 198.96,
+        "word": "alten"
+      }
+    ],
+    "text": "in der neuen italien häusern sind die mieten höher als in den alten"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 205.59,
+        "start": 205.47,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 205.71,
+        "start": 205.59,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 205.92,
+        "start": 205.71,
+        "word": "neuen"
+      },
+      {
+        "conf": 1.0,
+        "end": 206.34,
+        "start": 205.92,
+        "word": "etagen"
+      },
+      {
+        "conf": 1.0,
+        "end": 206.64,
+        "start": 206.34,
+        "word": "häuser"
+      },
+      {
+        "conf": 1.0,
+        "end": 206.79,
+        "start": 206.64,
+        "word": "sind"
+      },
+      {
+        "conf": 1.0,
+        "end": 206.85,
+        "start": 206.79,
+        "word": "die"
+      },
+      {
+        "conf": 0.631698,
+        "end": 207.06,
+        "start": 206.85,
+        "word": "mit"
+      },
+      {
+        "conf": 0.5271,
+        "end": 207.24,
+        "start": 207.075747,
+        "word": "nich"
+      },
+      {
+        "conf": 1.0,
+        "end": 207.51,
+        "start": 207.25418,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 207.63,
+        "start": 207.57,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 207.75,
+        "start": 207.63,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 208.14,
+        "start": 207.75,
+        "word": "alten"
+      },
+      {
+        "conf": 1.0,
+        "end": 209.37,
+        "start": 209.1,
+        "word": "aber"
+      },
+      {
+        "conf": 1.0,
+        "end": 209.7,
+        "start": 209.37,
+        "word": "sonst"
+      },
+      {
+        "conf": 1.0,
+        "end": 210.0,
+        "start": 209.7,
+        "word": "d"
+      }
+    ],
+    "text": "in den neuen etagen häuser sind die mit nich so in den alten aber sonst d"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 211.44,
+        "start": 211.26,
+        "word": "wir"
+      },
+      {
+        "conf": 0.949481,
+        "end": 211.689639,
+        "start": 211.44,
+        "word": "sehen"
+      },
+      {
+        "conf": 0.539701,
+        "end": 211.8,
+        "start": 211.689639,
+        "word": "den"
+      },
+      {
+        "conf": 0.953551,
+        "end": 212.07,
+        "start": 211.8,
+        "word": "wagen"
+      },
+      {
+        "conf": 0.953551,
+        "end": 212.19,
+        "start": 212.07,
+        "word": "des"
+      },
+      {
+        "conf": 0.965993,
+        "end": 212.67,
+        "start": 212.19,
+        "word": "konsens"
+      },
+      {
+        "conf": 0.815616,
+        "end": 213.0,
+        "start": 212.67,
+        "word": "erste"
+      },
+      {
+        "conf": 0.455963,
+        "end": 213.15,
+        "start": 213.0,
+        "word": "alt"
+      },
+      {
+        "conf": 0.455963,
+        "end": 213.36,
+        "start": 213.15,
+        "word": "bin"
+      },
+      {
+        "conf": 1.0,
+        "end": 213.51,
+        "start": 213.36,
+        "word": "des"
+      },
+      {
+        "conf": 1.0,
+        "end": 214.2,
+        "start": 213.51,
+        "word": "botschafter"
+      }
+    ],
+    "text": "wir sehen den wagen des konsens erste alt bin des botschafter"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 220.11,
+        "start": 219.99,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 220.32,
+        "start": 220.11,
+        "word": "sehen"
+      },
+      {
+        "conf": 1.0,
+        "end": 220.38,
+        "start": 220.32,
+        "word": "in"
+      },
+      {
+        "conf": 0.555786,
+        "end": 220.62,
+        "start": 220.38,
+        "word": "warm"
+      },
+      {
+        "conf": 0.925603,
+        "end": 220.74,
+        "start": 220.62,
+        "word": "ist"
+      },
+      {
+        "conf": 0.40852,
+        "end": 221.04,
+        "start": 220.98,
+        "word": "du"
+      },
+      {
+        "conf": 0.67357,
+        "end": 221.1,
+        "start": 221.04,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 221.28,
+        "start": 221.1,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 221.4,
+        "start": 221.28,
+        "word": "so"
+      },
+      {
+        "conf": 0.694834,
+        "end": 221.52,
+        "start": 221.4,
+        "word": "auf"
+      },
+      {
+        "conf": 1.0,
+        "end": 221.61,
+        "start": 221.52,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 221.73,
+        "start": 221.61,
+        "word": "den"
+      },
+      {
+        "conf": 0.850517,
+        "end": 221.85,
+        "start": 221.73,
+        "word": "das"
+      },
+      {
+        "conf": 0.871109,
+        "end": 222.57,
+        "start": 221.85,
+        "word": "botschafters"
+      }
+    ],
+    "text": "wir sehen in warm ist du es nicht so auf wie den das botschafters"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.693124,
+        "end": 224.04,
+        "start": 223.68,
+        "word": "number"
+      },
+      {
+        "conf": 0.415397,
+        "end": 224.37,
+        "start": 224.04,
+        "word": "server"
+      },
+      {
+        "conf": 0.493433,
+        "end": 224.79,
+        "start": 224.46,
+        "word": "w"
+      }
+    ],
+    "text": "number server w"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 226.08,
+        "start": 225.96,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 226.29,
+        "start": 226.08,
+        "word": "dieser"
+      },
+      {
+        "conf": 1.0,
+        "end": 226.65,
+        "start": 226.29,
+        "word": "stadt"
+      },
+      {
+        "conf": 1.0,
+        "end": 226.86,
+        "start": 226.65,
+        "word": "gibt"
+      },
+      {
+        "conf": 1.0,
+        "end": 227.004448,
+        "start": 226.86,
+        "word": "es"
+      },
+      {
+        "conf": 0.815143,
+        "end": 227.22,
+        "start": 227.01,
+        "word": "mehr"
+      },
+      {
+        "conf": 1.0,
+        "end": 227.73,
+        "start": 227.22,
+        "word": "omnibusse"
+      },
+      {
+        "conf": 1.0,
+        "end": 227.88,
+        "start": 227.73,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 228.75,
+        "start": 227.88,
+        "word": "straßenbahn"
+      }
+    ],
+    "text": "in dieser stadt gibt es mehr omnibusse als straßenbahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 234.84,
+        "start": 234.72,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.08,
+        "start": 234.84,
+        "word": "dieser"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.32,
+        "start": 235.08,
+        "word": "stadt"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.47,
+        "start": 235.32,
+        "word": "gibt"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.53,
+        "start": 235.47,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.68,
+        "start": 235.53,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.77,
+        "start": 235.68,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 235.92,
+        "start": 235.77,
+        "word": "viel"
+      },
+      {
+        "conf": 1.0,
+        "end": 236.34,
+        "start": 235.92,
+        "word": "omnibusse"
+      },
+      {
+        "conf": 1.0,
+        "end": 236.46,
+        "start": 236.34,
+        "word": "wie"
+      },
+      {
+        "conf": 0.701967,
+        "end": 237.21,
+        "start": 236.46,
+        "word": "straßenbahn"
+      }
+    ],
+    "text": "in dieser stadt gibt es nicht so viel omnibusse wie straßenbahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.871029,
+        "end": 240.597012,
+        "start": 240.33,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 241.02,
+        "start": 240.597012,
+        "word": "daheim"
+      },
+      {
+        "conf": 0.756809,
+        "end": 241.62,
+        "start": 241.11,
+        "word": "george"
+      },
+      {
+        "conf": 0.626512,
+        "end": 242.34,
+        "start": 241.71,
+        "word": "höchstbeträge"
+      },
+      {
+        "conf": 0.424617,
+        "end": 242.460059,
+        "start": 242.34,
+        "word": "den"
+      },
+      {
+        "conf": 0.454134,
+        "end": 242.88,
+        "start": 242.49,
+        "word": "gebrauch"
+      },
+      {
+        "conf": 0.731013,
+        "end": 243.99,
+        "start": 243.72,
+        "word": "eines"
+      },
+      {
+        "conf": 0.31379,
+        "end": 244.38,
+        "start": 243.99,
+        "word": "bristol"
+      },
+      {
+        "conf": 0.594381,
+        "end": 245.049375,
+        "start": 244.44,
+        "word": "arrangiert"
+      },
+      {
+        "conf": 0.345121,
+        "end": 245.22,
+        "start": 245.049375,
+        "word": "heute"
+      },
+      {
+        "conf": 0.416632,
+        "end": 245.536069,
+        "start": 245.349185,
+        "word": "passe"
+      },
+      {
+        "conf": 0.392967,
+        "end": 245.79,
+        "start": 245.536069,
+        "word": "gepasst"
+      },
+      {
+        "conf": 0.366875,
+        "end": 245.962031,
+        "start": 245.79,
+        "word": "dem"
+      },
+      {
+        "conf": 0.480819,
+        "end": 246.84,
+        "start": 246.406816,
+        "word": "nadel"
+      }
+    ],
+    "text": "ist daheim george höchstbeträge den gebrauch eines bristol arrangiert heute passe gepasst dem nadel"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 248.7,
+        "start": 248.31,
+        "word": "number"
+      },
+      {
+        "conf": 1.0,
+        "end": 249.09,
+        "start": 248.7,
+        "word": "one"
+      }
+    ],
+    "text": "number one"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 250.56,
+        "start": 250.32,
+        "word": "oben"
+      },
+      {
+        "conf": 1.0,
+        "end": 250.68,
+        "start": 250.56,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 250.8,
+        "start": 250.68,
+        "word": "den"
+      },
+      {
+        "conf": 0.567665,
+        "end": 251.22,
+        "start": 250.8,
+        "word": "daten"
+      },
+      {
+        "conf": 1.0,
+        "end": 251.34,
+        "start": 251.22,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 251.46,
+        "start": 251.34,
+        "word": "es"
+      },
+      {
+        "conf": 0.493748,
+        "end": 251.67,
+        "start": 251.46,
+        "word": "heute"
+      },
+      {
+        "conf": 1.0,
+        "end": 251.85,
+        "start": 251.674365,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.352493,
+        "end": 251.97,
+        "start": 251.85,
+        "word": "zu"
+      },
+      {
+        "conf": 1.0,
+        "end": 252.33,
+        "start": 251.97,
+        "word": "windig"
+      },
+      {
+        "conf": 0.756846,
+        "end": 252.45,
+        "start": 252.33,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 252.75,
+        "start": 252.45,
+        "word": "unten"
+      },
+      {
+        "conf": 1.0,
+        "end": 252.84,
+        "start": 252.75,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 253.29,
+        "start": 252.84,
+        "word": "tal"
+      }
+    ],
+    "text": "oben in den daten ist es heute nicht zu windig wie unten im tal"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.881175,
+        "end": 258.3,
+        "start": 258.03,
+        "word": "oben"
+      },
+      {
+        "conf": 0.881175,
+        "end": 258.42,
+        "start": 258.3,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 258.75,
+        "start": 258.42,
+        "word": "bergen"
+      },
+      {
+        "conf": 0.819637,
+        "end": 258.858193,
+        "start": 258.75,
+        "word": "ist"
+      },
+      {
+        "conf": 0.916602,
+        "end": 258.966387,
+        "start": 258.858193,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 259.2,
+        "start": 258.99,
+        "word": "heute"
+      },
+      {
+        "conf": 1.0,
+        "end": 259.59,
+        "start": 259.2,
+        "word": "windiger"
+      },
+      {
+        "conf": 0.791792,
+        "end": 259.77,
+        "start": 259.59,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 259.95,
+        "start": 259.78248,
+        "word": "und"
+      },
+      {
+        "conf": 1.0,
+        "end": 260.280117,
+        "start": 259.95,
+        "word": "nimmt"
+      },
+      {
+        "conf": 0.496801,
+        "end": 260.61,
+        "start": 260.280117,
+        "word": "all"
+      },
+      {
+        "conf": 0.443881,
+        "end": 262.205127,
+        "start": 261.78,
+        "word": "doppelt"
+      },
+      {
+        "conf": 0.556119,
+        "end": 262.71,
+        "start": 262.205127,
+        "word": "du"
+      },
+      {
+        "conf": 1.0,
+        "end": 263.52,
+        "start": 263.37,
+        "word": "hier"
+      },
+      {
+        "conf": 1.0,
+        "end": 263.7,
+        "start": 263.52,
+        "word": "ist"
+      },
+      {
+        "conf": 0.963111,
+        "end": 263.789678,
+        "start": 263.7,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 264.0,
+        "start": 263.789678,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.639459,
+        "end": 264.110215,
+        "start": 264.0,
+        "word": "so"
+      },
+      {
+        "conf": 0.258424,
+        "end": 264.769072,
+        "start": 264.57,
+        "word": "sieht"
+      },
+      {
+        "conf": 0.419485,
+        "end": 264.99,
+        "start": 264.769072,
+        "word": "dein"
+      },
+      {
+        "conf": 0.419485,
+        "end": 265.32,
+        "start": 265.02,
+        "word": "land"
+      }
+    ],
+    "text": "oben in bergen ist es heute windiger als und nimmt all doppelt du hier ist es nicht so sieht dein land"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.53515,
+        "end": 269.975918,
+        "start": 269.79,
+        "word": "dies"
+      },
+      {
+        "conf": 1.0,
+        "end": 270.102334,
+        "start": 269.975918,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 270.39,
+        "start": 270.115576,
+        "word": "kühler"
+      },
+      {
+        "conf": 1.0,
+        "end": 270.57,
+        "start": 270.39,
+        "word": "sind"
+      },
+      {
+        "conf": 1.0,
+        "end": 271.32,
+        "start": 270.57,
+        "word": "süddeutschland"
+      }
+    ],
+    "text": "dies ist kühler sind süddeutschland"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 272.88,
+        "start": 272.49,
+        "word": "name"
+      },
+      {
+        "conf": 0.316171,
+        "end": 273.42,
+        "start": 272.94,
+        "word": "free"
+      },
+      {
+        "conf": 1.0,
+        "end": 274.59,
+        "start": 274.44,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 274.95,
+        "start": 274.59,
+        "word": "sommer"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.07,
+        "start": 274.95,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.19,
+        "start": 275.07,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.28,
+        "start": 275.19,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.7,
+        "start": 275.28,
+        "word": "washington"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.88,
+        "start": 275.7,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 275.94,
+        "start": 275.88,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 276.24,
+        "start": 275.97,
+        "word": "heiß"
+      },
+      {
+        "conf": 1.0,
+        "end": 276.33,
+        "start": 276.24,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 276.42,
+        "start": 276.33,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 277.05,
+        "start": 276.42,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "name free im sommer ist es in washington nicht so heiß wie in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 282.39,
+        "start": 282.24,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 282.66,
+        "start": 282.39,
+        "word": "sommer"
+      },
+      {
+        "conf": 1.0,
+        "end": 282.75,
+        "start": 282.66,
+        "word": "ist"
+      },
+      {
+        "conf": 0.860499,
+        "end": 282.87,
+        "start": 282.75,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 282.96,
+        "start": 282.87,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 283.44,
+        "start": 282.96,
+        "word": "washington"
+      },
+      {
+        "conf": 0.683648,
+        "end": 283.77,
+        "start": 283.44,
+        "word": "heißer"
+      },
+      {
+        "conf": 0.683648,
+        "end": 283.89,
+        "start": 283.77,
+        "word": "als"
+      },
+      {
+        "conf": 0.541145,
+        "end": 283.98,
+        "start": 283.89,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 284.55,
+        "start": 283.98,
+        "word": "frankfurt"
+      },
+      {
+        "conf": 0.310959,
+        "end": 285.911572,
+        "start": 285.54,
+        "word": "naumburg"
+      },
+      {
+        "conf": 0.461435,
+        "end": 286.5,
+        "start": 285.911572,
+        "word": "burger"
+      }
+    ],
+    "text": "im sommer ist es in washington heißer als in frankfurt naumburg burger"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 287.73,
+        "start": 287.52,
+        "word": "ihre"
+      },
+      {
+        "conf": 1.0,
+        "end": 288.42,
+        "start": 287.73,
+        "word": "schreibmaschine"
+      },
+      {
+        "conf": 0.647771,
+        "end": 288.506924,
+        "start": 288.42,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 288.72,
+        "start": 288.506924,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 288.81,
+        "start": 288.72,
+        "word": "so"
+      },
+      {
+        "conf": 0.761212,
+        "end": 288.962666,
+        "start": 288.81,
+        "word": "gut"
+      },
+      {
+        "conf": 1.0,
+        "end": 289.05,
+        "start": 288.962666,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 289.53,
+        "start": 289.05,
+        "word": "meine"
+      }
+    ],
+    "text": "ihre schreibmaschine ist nicht so gut wie meine"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.718122,
+        "end": 293.565996,
+        "start": 293.46,
+        "word": "will"
+      },
+      {
+        "conf": 0.895419,
+        "end": 293.64,
+        "start": 293.565996,
+        "word": "ich"
+      },
+      {
+        "conf": 1.0,
+        "end": 293.88,
+        "start": 293.64,
+        "word": "weit"
+      },
+      {
+        "conf": 1.0,
+        "end": 294.18,
+        "start": 293.88,
+        "word": "maschine"
+      },
+      {
+        "conf": 1.0,
+        "end": 294.27,
+        "start": 294.18,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 294.51,
+        "start": 294.27,
+        "word": "besser"
+      },
+      {
+        "conf": 1.0,
+        "end": 294.63,
+        "start": 294.51,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 295.05,
+        "start": 294.63,
+        "word": "meine"
+      }
+    ],
+    "text": "will ich weit maschine ist besser als meine"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.373643,
+        "end": 296.511387,
+        "start": 296.16,
+        "word": "norbert"
+      },
+      {
+        "conf": 0.857974,
+        "end": 297.0,
+        "start": 296.511387,
+        "word": "bei"
+      }
+    ],
+    "text": "norbert bei"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 298.26,
+        "start": 298.08,
+        "word": "hier"
+      },
+      {
+        "conf": 1.0,
+        "end": 298.38,
+        "start": 298.26,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 298.56,
+        "start": 298.38,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.731317,
+        "end": 298.65,
+        "start": 298.56,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 298.95,
+        "start": 298.658057,
+        "word": "wenig"
+      },
+      {
+        "conf": 1.0,
+        "end": 299.37,
+        "start": 298.95,
+        "word": "verkehr"
+      },
+      {
+        "conf": 0.58735,
+        "end": 299.52,
+        "start": 299.37,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 299.64,
+        "start": 299.52,
+        "word": "auf"
+      },
+      {
+        "conf": 1.0,
+        "end": 299.76,
+        "start": 299.64,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 300.3,
+        "start": 299.76,
+        "word": "autobahn"
+      }
+    ],
+    "text": "hier ist nicht so wenig verkehr wir auf der autobahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 304.44,
+        "start": 304.26,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 304.71,
+        "start": 304.44,
+        "word": "weniger"
+      },
+      {
+        "conf": 1.0,
+        "end": 305.19,
+        "start": 304.71,
+        "word": "verkehrs"
+      },
+      {
+        "conf": 1.0,
+        "end": 305.97,
+        "start": 305.19,
+        "word": "autobahn"
+      }
+    ],
+    "text": "ist weniger verkehrs autobahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 307.59,
+        "start": 307.2,
+        "word": "number"
+      },
+      {
+        "conf": 1.0,
+        "end": 308.22,
+        "start": 307.59,
+        "word": "sex"
+      },
+      {
+        "conf": 0.552971,
+        "end": 309.39,
+        "start": 309.24,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 309.72,
+        "start": 309.391963,
+        "word": "weise"
+      },
+      {
+        "conf": 0.752132,
+        "end": 309.96,
+        "start": 309.72,
+        "word": "hemd"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.32,
+        "start": 309.96,
+        "word": "gefällt"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.41,
+        "start": 310.32,
+        "word": "mir"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.62,
+        "start": 310.41,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.71,
+        "start": 310.62,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.89,
+        "start": 310.71,
+        "word": "gut"
+      },
+      {
+        "conf": 1.0,
+        "end": 310.95,
+        "start": 310.89,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 311.16,
+        "start": 310.95,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 311.7,
+        "start": 311.16,
+        "word": "farbige"
+      }
+    ],
+    "text": "number sex als weise hemd gefällt mir nicht so gut wie das farbige"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 316.11,
+        "start": 315.96,
+        "word": "das"
+      },
+      {
+        "conf": 0.681323,
+        "end": 316.38,
+        "start": 316.11,
+        "word": "weiß"
+      },
+      {
+        "conf": 0.85258,
+        "end": 316.53,
+        "start": 316.386533,
+        "word": "einem"
+      },
+      {
+        "conf": 1.0,
+        "end": 316.8,
+        "start": 316.53,
+        "word": "gefällt"
+      },
+      {
+        "conf": 1.0,
+        "end": 316.89,
+        "start": 316.8,
+        "word": "mir"
+      },
+      {
+        "conf": 1.0,
+        "end": 317.180068,
+        "start": 316.89,
+        "word": "besser"
+      },
+      {
+        "conf": 0.669114,
+        "end": 317.303643,
+        "start": 317.19,
+        "word": "ist"
+      },
+      {
+        "conf": 0.845774,
+        "end": 317.4,
+        "start": 317.303643,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 317.61,
+        "start": 317.4,
+        "word": "war"
+      },
+      {
+        "conf": 1.0,
+        "end": 317.88,
+        "start": 317.61,
+        "word": "wir"
+      }
+    ],
+    "text": "das weiß einem gefällt mir besser ist das war wir"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 319.68,
+        "start": 319.32,
+        "word": "number"
+      },
+      {
+        "conf": 1.0,
+        "end": 320.13,
+        "start": 319.68,
+        "word": "server"
+      }
+    ],
+    "text": "number server"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.544338,
+        "end": 321.77165,
+        "start": 321.57,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 321.9,
+        "start": 321.77165,
+        "word": "denn"
+      },
+      {
+        "conf": 1.0,
+        "end": 322.02,
+        "start": 321.9,
+        "word": "der"
+      },
+      {
+        "conf": 0.834765,
+        "end": 322.26,
+        "start": 322.02,
+        "word": "dom"
+      },
+      {
+        "conf": 0.834765,
+        "end": 322.38,
+        "start": 322.26,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 322.65,
+        "start": 322.38,
+        "word": "köln"
+      },
+      {
+        "conf": 1.0,
+        "end": 322.83,
+        "start": 322.65,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 322.92,
+        "start": 322.83,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 323.22,
+        "start": 322.92,
+        "word": "groß"
+      },
+      {
+        "conf": 1.0,
+        "end": 323.343311,
+        "start": 323.22,
+        "word": "wie"
+      },
+      {
+        "conf": 0.618819,
+        "end": 323.58,
+        "start": 323.343311,
+        "word": "gern"
+      },
+      {
+        "conf": 1.0,
+        "end": 324.15,
+        "start": 323.58,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "ist denn der dom in köln nicht so groß wie gern frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 329.73,
+        "start": 329.52,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 329.82,
+        "start": 329.73,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 329.91,
+        "start": 329.82,
+        "word": "der"
+      },
+      {
+        "conf": 0.527224,
+        "end": 330.12,
+        "start": 329.91,
+        "word": "dom"
+      },
+      {
+        "conf": 0.527224,
+        "end": 330.21,
+        "start": 330.12,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 330.48,
+        "start": 330.22418,
+        "word": "köln"
+      },
+      {
+        "conf": 1.0,
+        "end": 330.826846,
+        "start": 330.48,
+        "word": "größer"
+      },
+      {
+        "conf": 0.561669,
+        "end": 330.99,
+        "start": 330.84,
+        "word": "ist"
+      },
+      {
+        "conf": 0.429231,
+        "end": 331.08,
+        "start": 330.99,
+        "word": "ihr"
+      },
+      {
+        "conf": 0.899753,
+        "end": 331.17,
+        "start": 331.08,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 331.71,
+        "start": 331.17,
+        "word": "frankfurt"
+      }
+    ],
+    "text": "ist in der dom in köln größer ist ihr in frankfurt"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.467174,
+        "end": 333.06,
+        "start": 332.88,
+        "word": "na"
+      },
+      {
+        "conf": 0.524488,
+        "end": 333.54,
+        "start": 333.27,
+        "word": "a"
+      }
+    ],
+    "text": "na a"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.598316,
+        "end": 335.67,
+        "start": 335.37,
+        "word": "finden"
+      },
+      {
+        "conf": 1.0,
+        "end": 335.79,
+        "start": 335.67,
+        "word": "sie"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.06,
+        "start": 335.79,
+        "word": "diesen"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.39,
+        "start": 336.06,
+        "word": "stoff"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.6,
+        "start": 336.39,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.72,
+        "start": 336.6,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.9,
+        "start": 336.72,
+        "word": "gut"
+      },
+      {
+        "conf": 1.0,
+        "end": 336.991084,
+        "start": 336.9,
+        "word": "wie"
+      },
+      {
+        "conf": 0.442919,
+        "end": 337.08,
+        "start": 336.991084,
+        "word": "bei"
+      },
+      {
+        "conf": 1.0,
+        "end": 337.5,
+        "start": 337.14,
+        "word": "anderen"
+      },
+      {
+        "conf": 1.0,
+        "end": 337.77,
+        "start": 337.5,
+        "word": "da"
+      }
+    ],
+    "text": "finden sie diesen stoff nicht so gut wie bei anderen da"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.578687,
+        "end": 342.96,
+        "start": 342.6,
+        "word": "finden"
+      },
+      {
+        "conf": 1.0,
+        "end": 343.05,
+        "start": 342.96,
+        "word": "sie"
+      },
+      {
+        "conf": 0.744396,
+        "end": 343.313408,
+        "start": 343.05,
+        "word": "diesen"
+      },
+      {
+        "conf": 0.741518,
+        "end": 343.617393,
+        "start": 343.40625,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 343.912617,
+        "start": 343.617393,
+        "word": "besser"
+      },
+      {
+        "conf": 0.753618,
+        "end": 344.068447,
+        "start": 343.92,
+        "word": "ist"
+      },
+      {
+        "conf": 0.822935,
+        "end": 344.16,
+        "start": 344.068447,
+        "word": "in"
+      },
+      {
+        "conf": 0.561509,
+        "end": 344.46,
+        "start": 344.16,
+        "word": "anderen"
+      },
+      {
+        "conf": 1.0,
+        "end": 344.76,
+        "start": 344.46,
+        "word": "da"
+      }
+    ],
+    "text": "finden sie diesen das besser ist in anderen da"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.693507,
+        "end": 346.525957,
+        "start": 346.356475,
+        "word": "wenn"
+      },
+      {
+        "conf": 1.0,
+        "end": 347.13,
+        "start": 346.525957,
+        "word": "nein"
+      }
+    ],
+    "text": "wenn nein"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.68209,
+        "end": 348.63,
+        "start": 348.36,
+        "word": "diese"
+      },
+      {
+        "conf": 1.0,
+        "end": 349.05,
+        "start": 348.63,
+        "word": "zeitung"
+      },
+      {
+        "conf": 1.0,
+        "end": 349.2,
+        "start": 349.05,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 349.41,
+        "start": 349.2,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 349.53,
+        "start": 349.41,
+        "word": "sehr"
+      },
+      {
+        "conf": 1.0,
+        "end": 350.04,
+        "start": 349.53,
+        "word": "interessant"
+      },
+      {
+        "conf": 1.0,
+        "end": 350.13,
+        "start": 350.04,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 350.22,
+        "start": 350.13,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 350.7,
+        "start": 350.22,
+        "word": "frankfurter"
+      },
+      {
+        "conf": 1.0,
+        "end": 351.36,
+        "start": 350.7,
+        "word": "allgemeine"
+      }
+    ],
+    "text": "diese zeitung ist nicht sehr interessant wie die frankfurter allgemeine"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 356.64,
+        "start": 356.4,
+        "word": "diese"
+      },
+      {
+        "conf": 0.913214,
+        "end": 356.97,
+        "start": 356.64,
+        "word": "zeitung"
+      },
+      {
+        "conf": 0.913214,
+        "end": 357.09,
+        "start": 356.97,
+        "word": "ist"
+      },
+      {
+        "conf": 0.760978,
+        "end": 357.54,
+        "start": 357.09,
+        "word": "interessant"
+      },
+      {
+        "conf": 0.760978,
+        "end": 357.63,
+        "start": 357.54,
+        "word": "da"
+      },
+      {
+        "conf": 1.0,
+        "end": 357.78,
+        "start": 357.63,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 357.84,
+        "start": 357.78,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 358.29,
+        "start": 357.84,
+        "word": "frankfurter"
+      },
+      {
+        "conf": 1.0,
+        "end": 358.86,
+        "start": 358.29,
+        "word": "allgemeine"
+      }
+    ],
+    "text": "diese zeitung ist interessant da ist die frankfurter allgemeine"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.363366,
+        "end": 360.69,
+        "start": 360.24,
+        "word": "bitte"
+      }
+    ],
+    "text": "bitte"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 362.79,
+        "start": 362.49,
+        "word": "dieser"
+      },
+      {
+        "conf": 0.605789,
+        "end": 363.18,
+        "start": 362.79,
+        "word": "briefes"
+      },
+      {
+        "conf": 0.881124,
+        "end": 363.78,
+        "start": 363.21,
+        "word": "augenblicklich"
+      },
+      {
+        "conf": 1.0,
+        "end": 363.99,
+        "start": 363.78,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 364.08,
+        "start": 363.99,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 364.5,
+        "start": 364.08,
+        "word": "dringend"
+      },
+      {
+        "conf": 1.0,
+        "end": 364.65,
+        "start": 364.5,
+        "word": "und"
+      },
+      {
+        "conf": 1.0,
+        "end": 365.01,
+        "start": 364.65,
+        "word": "wichtig"
+      },
+      {
+        "conf": 1.0,
+        "end": 365.19,
+        "start": 365.01,
+        "word": "wir"
+      },
+      {
+        "conf": 1.0,
+        "end": 366.06,
+        "start": 365.19,
+        "word": "ferngespräch"
+      }
+    ],
+    "text": "dieser briefes augenblicklich nicht so dringend und wichtig wir ferngespräch"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.479513,
+        "end": 372.564844,
+        "start": 372.15,
+        "word": "leserbriefes"
+      },
+      {
+        "conf": 0.520487,
+        "end": 372.81,
+        "start": 372.564844,
+        "word": "briefes"
+      },
+      {
+        "conf": 1.0,
+        "end": 373.41,
+        "start": 372.81,
+        "word": "augenblicklich"
+      },
+      {
+        "conf": 1.0,
+        "end": 373.86,
+        "start": 373.41,
+        "word": "dringender"
+      },
+      {
+        "conf": 1.0,
+        "end": 373.98,
+        "start": 373.86,
+        "word": "und"
+      },
+      {
+        "conf": 1.0,
+        "end": 374.432373,
+        "start": 373.98,
+        "word": "wichtiger"
+      },
+      {
+        "conf": 0.669161,
+        "end": 374.573467,
+        "start": 374.432373,
+        "word": "als"
+      },
+      {
+        "conf": 0.531554,
+        "end": 374.669004,
+        "start": 374.58,
+        "word": "ihr"
+      },
+      {
+        "conf": 1.0,
+        "end": 375.39,
+        "start": 374.669004,
+        "word": "ferngespräch"
+      }
+    ],
+    "text": "leserbriefes briefes augenblicklich dringender und wichtiger als ihr ferngespräch"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.802498,
+        "end": 377.19,
+        "start": 376.77,
+        "word": "normal"
+      },
+      {
+        "conf": 1.0,
+        "end": 377.47667,
+        "start": 377.195918,
+        "word": "immer"
+      },
+      {
+        "conf": 0.337382,
+        "end": 377.73,
+        "start": 377.47667,
+        "word": "aber"
+      }
+    ],
+    "text": "normal immer aber"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.664529,
+        "end": 379.44,
+        "start": 379.29,
+        "word": "es"
+      },
+      {
+        "conf": 0.461344,
+        "end": 379.535801,
+        "start": 379.44,
+        "word": "der"
+      },
+      {
+        "conf": 0.472606,
+        "end": 380.007334,
+        "start": 379.535801,
+        "word": "material"
+      },
+      {
+        "conf": 0.679185,
+        "end": 380.28,
+        "start": 380.007334,
+        "word": "dieses"
+      },
+      {
+        "conf": 1.0,
+        "end": 380.64,
+        "start": 380.28,
+        "word": "blauen"
+      },
+      {
+        "conf": 0.71668,
+        "end": 381.06,
+        "start": 380.64,
+        "word": "ansatz"
+      },
+      {
+        "conf": 1.0,
+        "end": 381.21,
+        "start": 381.06,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 381.455918,
+        "start": 381.21,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 381.841465,
+        "start": 381.51,
+        "word": "leicht"
+      },
+      {
+        "conf": 0.303577,
+        "end": 381.929795,
+        "start": 381.841465,
+        "word": "die"
+      },
+      {
+        "conf": 0.939794,
+        "end": 382.11,
+        "start": 381.929795,
+        "word": "das"
+      },
+      {
+        "conf": 0.982568,
+        "end": 382.26,
+        "start": 382.11,
+        "word": "des"
+      },
+      {
+        "conf": 0.561312,
+        "end": 382.65,
+        "start": 382.26,
+        "word": "grau"
+      }
+    ],
+    "text": "es der material dieses blauen ansatz ist nicht leicht die das des grau"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 388.71,
+        "start": 388.56,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 389.16,
+        "start": 388.71,
+        "word": "material"
+      },
+      {
+        "conf": 1.0,
+        "end": 389.4,
+        "start": 389.16,
+        "word": "dieses"
+      },
+      {
+        "conf": 1.0,
+        "end": 389.67,
+        "start": 389.4,
+        "word": "blauen"
+      },
+      {
+        "conf": 0.801342,
+        "end": 390.15,
+        "start": 389.67,
+        "word": "anzug"
+      },
+      {
+        "conf": 1.0,
+        "end": 390.27,
+        "start": 390.15,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 390.57,
+        "start": 390.27,
+        "word": "leichter"
+      },
+      {
+        "conf": 1.0,
+        "end": 390.69,
+        "start": 390.57,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 390.87,
+        "start": 390.69,
+        "word": "das"
+      },
+      {
+        "conf": 0.783495,
+        "end": 390.99,
+        "start": 390.87,
+        "word": "des"
+      },
+      {
+        "conf": 1.0,
+        "end": 391.41,
+        "start": 390.99,
+        "word": "grauen"
+      },
+      {
+        "conf": 0.394418,
+        "end": 393.03,
+        "start": 392.76,
+        "word": "bad"
+      },
+      {
+        "conf": 1.0,
+        "end": 393.6,
+        "start": 393.03,
+        "word": "wow"
+      }
+    ],
+    "text": "das material dieses blauen anzug ist leichter als das des grauen bad wow"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.777319,
+        "end": 394.89,
+        "start": 394.8,
+        "word": "wir"
+      },
+      {
+        "conf": 0.399298,
+        "end": 395.215723,
+        "start": 394.89,
+        "word": "fahren"
+      },
+      {
+        "conf": 1.0,
+        "end": 395.4,
+        "start": 395.215723,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 395.73,
+        "start": 395.4,
+        "word": "sogar"
+      },
+      {
+        "conf": 1.0,
+        "end": 395.881465,
+        "start": 395.73,
+        "word": "mit"
+      },
+      {
+        "conf": 0.866371,
+        "end": 395.969385,
+        "start": 395.881465,
+        "word": "der"
+      },
+      {
+        "conf": 0.814454,
+        "end": 396.57,
+        "start": 395.969385,
+        "word": "straßenbahn"
+      },
+      {
+        "conf": 0.691574,
+        "end": 396.66,
+        "start": 396.57,
+        "word": "wir"
+      },
+      {
+        "conf": 0.691574,
+        "end": 396.774932,
+        "start": 396.66,
+        "word": "mit"
+      },
+      {
+        "conf": 1.0,
+        "end": 396.87,
+        "start": 396.774932,
+        "word": "dem"
+      },
+      {
+        "conf": 0.744475,
+        "end": 397.28127,
+        "start": 396.87,
+        "word": "auto"
+      }
+    ],
+    "text": "wir fahren nicht sogar mit der straßenbahn wir mit dem auto"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.785103,
+        "end": 402.69,
+        "start": 402.36,
+        "word": "gefahr"
+      },
+      {
+        "conf": 0.785103,
+        "end": 402.87,
+        "start": 402.69,
+        "word": "lege"
+      },
+      {
+        "conf": 0.893557,
+        "end": 402.96,
+        "start": 402.87,
+        "word": "mir"
+      },
+      {
+        "conf": 0.768593,
+        "end": 403.049443,
+        "start": 402.96,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 403.62,
+        "start": 403.049443,
+        "word": "straßenbahn"
+      },
+      {
+        "conf": 0.752635,
+        "end": 403.71,
+        "start": 403.62,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 403.83,
+        "start": 403.71,
+        "word": "mit"
+      },
+      {
+        "conf": 1.0,
+        "end": 403.95,
+        "start": 403.83,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 404.52,
+        "start": 403.95,
+        "word": "autobus"
+      },
+      {
+        "conf": 0.803,
+        "end": 406.11,
+        "start": 405.51,
+        "word": "raubritter"
+      },
+      {
+        "conf": 0.913877,
+        "end": 406.53,
+        "start": 406.17,
+        "word": "d"
+      }
+    ],
+    "text": "gefahr lege mir der straßenbahn als mit dem autobus raubritter d"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.768106,
+        "end": 408.0,
+        "start": 407.76,
+        "word": "bürger"
+      },
+      {
+        "conf": 0.450442,
+        "end": 408.36,
+        "start": 408.0,
+        "word": "muster"
+      },
+      {
+        "conf": 0.73939,
+        "end": 408.6,
+        "start": 408.36,
+        "word": "viel"
+      },
+      {
+        "conf": 1.0,
+        "end": 408.75,
+        "start": 408.6,
+        "word": "von"
+      },
+      {
+        "conf": 0.618276,
+        "end": 408.87,
+        "start": 408.75,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 409.26,
+        "start": 408.87,
+        "word": "deutschen"
+      },
+      {
+        "conf": 0.644366,
+        "end": 409.53,
+        "start": 409.26,
+        "word": "weil"
+      },
+      {
+        "conf": 0.815271,
+        "end": 409.77167,
+        "start": 409.53,
+        "word": "liefern"
+      },
+      {
+        "conf": 0.700515,
+        "end": 409.89,
+        "start": 409.77167,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 410.46,
+        "start": 409.89,
+        "word": "französischen"
+      },
+      {
+        "conf": 1.0,
+        "end": 410.94,
+        "start": 410.46,
+        "word": "kaufen"
+      }
+    ],
+    "text": "bürger muster viel von den deutschen weil liefern dem französischen kaufen"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.734087,
+        "end": 416.7,
+        "start": 416.58,
+        "word": "er"
+      },
+      {
+        "conf": 0.734087,
+        "end": 416.82,
+        "start": 416.7,
+        "word": "will"
+      },
+      {
+        "conf": 0.868479,
+        "end": 416.94,
+        "start": 416.82,
+        "word": "mir"
+      },
+      {
+        "conf": 1.0,
+        "end": 417.064512,
+        "start": 416.94,
+        "word": "von"
+      },
+      {
+        "conf": 0.580242,
+        "end": 417.18,
+        "start": 417.064512,
+        "word": "dem"
+      },
+      {
+        "conf": 1.0,
+        "end": 417.51,
+        "start": 417.18,
+        "word": "deutschen"
+      },
+      {
+        "conf": 1.0,
+        "end": 417.9,
+        "start": 417.51,
+        "word": "weihnachtsmann"
+      },
+      {
+        "conf": 0.514006,
+        "end": 417.99,
+        "start": 417.9,
+        "word": "im"
+      },
+      {
+        "conf": 1.0,
+        "end": 418.47,
+        "start": 417.99,
+        "word": "französischen"
+      },
+      {
+        "conf": 1.0,
+        "end": 418.89,
+        "start": 418.47,
+        "word": "kaufen"
+      }
+    ],
+    "text": "er will mir von dem deutschen weihnachtsmann im französischen kaufen"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.421593,
+        "end": 420.3,
+        "start": 420.12,
+        "word": "noch"
+      },
+      {
+        "conf": 0.358102,
+        "end": 420.75,
+        "start": 420.3,
+        "word": "bevor"
+      },
+      {
+        "conf": 0.666524,
+        "end": 421.11,
+        "start": 420.75,
+        "word": "die"
+      }
+    ],
+    "text": "noch bevor die"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.742717,
+        "end": 422.41251,
+        "start": 422.22,
+        "word": "und"
+      },
+      {
+        "conf": 0.416378,
+        "end": 422.902119,
+        "start": 422.73,
+        "word": "hier"
+      },
+      {
+        "conf": 0.607448,
+        "end": 423.0,
+        "start": 422.902119,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 423.21,
+        "start": 423.0,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 423.3,
+        "start": 423.21,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 423.75,
+        "start": 423.3,
+        "word": "gemütlich"
+      },
+      {
+        "conf": 1.0,
+        "end": 423.87,
+        "start": 423.75,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 424.05,
+        "start": 423.87,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 424.62,
+        "start": 424.05,
+        "word": "wohnzimmer"
+      }
+    ],
+    "text": "und hier ist nicht so gemütlich wie das wohnzimmer"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 429.69,
+        "start": 429.36,
+        "word": "unsere"
+      },
+      {
+        "conf": 1.0,
+        "end": 429.99,
+        "start": 429.69,
+        "word": "küche"
+      },
+      {
+        "conf": 1.0,
+        "end": 430.08,
+        "start": 429.99,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 430.5,
+        "start": 430.08,
+        "word": "gemütlich"
+      },
+      {
+        "conf": 0.562628,
+        "end": 430.68,
+        "start": 430.5,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 430.8,
+        "start": 430.68,
+        "word": "das"
+      },
+      {
+        "conf": 1.0,
+        "end": 431.37,
+        "start": 430.8,
+        "word": "wohnzimmer"
+      }
+    ],
+    "text": "unsere küche ist gemütlich als das wohnzimmer"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.428815,
+        "end": 432.938643,
+        "start": 432.63,
+        "word": "normal"
+      },
+      {
+        "conf": 0.571185,
+        "end": 433.26,
+        "start": 432.938643,
+        "word": "möbel"
+      },
+      {
+        "conf": 0.971593,
+        "end": 433.71,
+        "start": 433.35,
+        "word": "d"
+      }
+    ],
+    "text": "normal möbel d"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.887471,
+        "end": 435.0,
+        "start": 434.88,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 435.12,
+        "start": 435.0,
+        "word": "der"
+      },
+      {
+        "conf": 1.0,
+        "end": 435.39,
+        "start": 435.12,
+        "word": "neuen"
+      },
+      {
+        "conf": 1.0,
+        "end": 435.84,
+        "start": 435.39,
+        "word": "italien"
+      },
+      {
+        "conf": 1.0,
+        "end": 436.26,
+        "start": 435.84,
+        "word": "häusern"
+      },
+      {
+        "conf": 1.0,
+        "end": 436.44,
+        "start": 436.26,
+        "word": "sind"
+      },
+      {
+        "conf": 1.0,
+        "end": 436.53,
+        "start": 436.44,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 436.86,
+        "start": 436.53,
+        "word": "mieten"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.07,
+        "start": 436.86,
+        "word": "nicht"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.16,
+        "start": 437.07,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.4,
+        "start": 437.16,
+        "word": "hoch"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.52,
+        "start": 437.4,
+        "word": "wie"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.58,
+        "start": 437.52,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 437.73,
+        "start": 437.58,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 438.18,
+        "start": 437.73,
+        "word": "alten"
+      }
+    ],
+    "text": "in der neuen italien häusern sind die mieten nicht so hoch wie in den alten"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 444.09,
+        "start": 443.97,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 444.21,
+        "start": 444.09,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 444.45,
+        "start": 444.21,
+        "word": "neuen"
+      },
+      {
+        "conf": 1.0,
+        "end": 444.87,
+        "start": 444.45,
+        "word": "etagen"
+      },
+      {
+        "conf": 1.0,
+        "end": 445.14,
+        "start": 444.87,
+        "word": "häusern"
+      },
+      {
+        "conf": 1.0,
+        "end": 445.35,
+        "start": 445.14,
+        "word": "sind"
+      },
+      {
+        "conf": 1.0,
+        "end": 445.41,
+        "start": 445.35,
+        "word": "die"
+      },
+      {
+        "conf": 1.0,
+        "end": 445.68,
+        "start": 445.41,
+        "word": "mieten"
+      },
+      {
+        "conf": 1.0,
+        "end": 445.92,
+        "start": 445.68,
+        "word": "höher"
+      },
+      {
+        "conf": 1.0,
+        "end": 446.07,
+        "start": 445.92,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 446.13,
+        "start": 446.07,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 446.22,
+        "start": 446.13,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 446.61,
+        "start": 446.22,
+        "word": "alten"
+      },
+      {
+        "conf": 0.733829,
+        "end": 447.971455,
+        "start": 447.6,
+        "word": "normal"
+      },
+      {
+        "conf": 0.586523,
+        "end": 448.32,
+        "start": 447.971455,
+        "word": "sex"
+      },
+      {
+        "conf": 1.0,
+        "end": 448.68,
+        "start": 448.32,
+        "word": "d"
+      }
+    ],
+    "text": "in den neuen etagen häusern sind die mieten höher als in den alten normal sex d"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 450.12,
+        "start": 450.0,
+        "word": "wir"
+      },
+      {
+        "conf": 0.880158,
+        "end": 450.357803,
+        "start": 450.12,
+        "word": "sehen"
+      },
+      {
+        "conf": 1.0,
+        "end": 450.51,
+        "start": 450.357803,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 450.81,
+        "start": 450.51,
+        "word": "wagen"
+      },
+      {
+        "conf": 1.0,
+        "end": 450.93,
+        "start": 450.81,
+        "word": "des"
+      },
+      {
+        "conf": 0.895682,
+        "end": 451.47,
+        "start": 450.93,
+        "word": "consult"
+      },
+      {
+        "conf": 1.0,
+        "end": 451.654834,
+        "start": 451.47,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.58121,
+        "end": 451.77,
+        "start": 451.654834,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 452.04,
+        "start": 451.77,
+        "word": "oft"
+      },
+      {
+        "conf": 1.0,
+        "end": 452.13,
+        "start": 452.04,
+        "word": "wie"
+      },
+      {
+        "conf": 0.864197,
+        "end": 452.307598,
+        "start": 452.13,
+        "word": "denen"
+      },
+      {
+        "conf": 1.0,
+        "end": 452.43,
+        "start": 452.307598,
+        "word": "des"
+      },
+      {
+        "conf": 0.561728,
+        "end": 453.12,
+        "start": 452.43,
+        "word": "botschafter"
+      }
+    ],
+    "text": "wir sehen den wagen des consult nicht so oft wie denen des botschafter"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 458.97,
+        "start": 458.85,
+        "word": "wir"
+      },
+      {
+        "conf": 0.675804,
+        "end": 459.18,
+        "start": 458.97,
+        "word": "sehen"
+      },
+      {
+        "conf": 0.78434,
+        "end": 459.3,
+        "start": 459.18,
+        "word": "den"
+      },
+      {
+        "conf": 0.487036,
+        "end": 459.567598,
+        "start": 459.3,
+        "word": "warmen"
+      },
+      {
+        "conf": 0.648149,
+        "end": 459.687773,
+        "start": 459.567598,
+        "word": "ist"
+      },
+      {
+        "conf": 1.0,
+        "end": 460.14,
+        "start": 459.687773,
+        "word": "konfus"
+      },
+      {
+        "conf": 1.0,
+        "end": 460.5,
+        "start": 460.14,
+        "word": "öfter"
+      },
+      {
+        "conf": 1.0,
+        "end": 460.65,
+        "start": 460.5,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 460.83,
+        "start": 460.65,
+        "word": "den"
+      },
+      {
+        "conf": 1.0,
+        "end": 460.92,
+        "start": 460.83,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 461.7,
+        "start": 460.92,
+        "word": "botschafters"
+      },
+      {
+        "conf": 1.0,
+        "end": 462.9,
+        "start": 462.66,
+        "word": "aber"
+      },
+      {
+        "conf": 1.0,
+        "end": 463.26,
+        "start": 462.9,
+        "word": "sagen"
+      },
+      {
+        "conf": 1.0,
+        "end": 463.62,
+        "start": 463.26,
+        "word": "sie"
+      }
+    ],
+    "text": "wir sehen den warmen ist konfus öfter als den es botschafters aber sagen sie"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.619884,
+        "end": 465.27,
+        "start": 465.12,
+        "word": "in"
+      },
+      {
+        "conf": 0.619884,
+        "end": 465.51,
+        "start": 465.27,
+        "word": "dieser"
+      },
+      {
+        "conf": 0.901688,
+        "end": 465.87,
+        "start": 465.51,
+        "word": "stadt"
+      },
+      {
+        "conf": 0.349392,
+        "end": 466.208438,
+        "start": 465.87,
+        "word": "gebirgen"
+      },
+      {
+        "conf": 0.515507,
+        "end": 466.35,
+        "start": 466.208438,
+        "word": "nicht"
+      },
+      {
+        "conf": 0.711014,
+        "end": 466.47,
+        "start": 466.35,
+        "word": "so"
+      },
+      {
+        "conf": 1.0,
+        "end": 466.68,
+        "start": 466.47,
+        "word": "viele"
+      },
+      {
+        "conf": 0.951614,
+        "end": 467.19,
+        "start": 466.71,
+        "word": "angebote"
+      },
+      {
+        "conf": 0.656596,
+        "end": 467.28,
+        "start": 467.19,
+        "word": "wie"
+      },
+      {
+        "conf": 0.537833,
+        "end": 468.12,
+        "start": 467.28,
+        "word": "straßenbahnen"
+      }
+    ],
+    "text": "in dieser stadt gebirgen nicht so viele angebote wie straßenbahnen"
+  },
+  {
+    "result": [
+      {
+        "conf": 1.0,
+        "end": 473.49,
+        "start": 473.37,
+        "word": "in"
+      },
+      {
+        "conf": 1.0,
+        "end": 473.73,
+        "start": 473.49,
+        "word": "dieser"
+      },
+      {
+        "conf": 1.0,
+        "end": 473.97,
+        "start": 473.73,
+        "word": "stadt"
+      },
+      {
+        "conf": 1.0,
+        "end": 474.12,
+        "start": 473.97,
+        "word": "gibt"
+      },
+      {
+        "conf": 1.0,
+        "end": 474.21,
+        "start": 474.12,
+        "word": "es"
+      },
+      {
+        "conf": 1.0,
+        "end": 474.36,
+        "start": 474.21,
+        "word": "mir"
+      },
+      {
+        "conf": 0.534427,
+        "end": 474.82749,
+        "start": 474.36,
+        "word": "omnibusse"
+      },
+      {
+        "conf": 0.790682,
+        "end": 474.957217,
+        "start": 474.82749,
+        "word": "als"
+      },
+      {
+        "conf": 1.0,
+        "end": 475.71,
+        "start": 474.957217,
+        "word": "straßenbahn"
+      }
+    ],
+    "text": "in dieser stadt gibt es mir omnibusse als straßenbahn"
+  },
+  {
+    "result": [
+      {
+        "conf": 0.927298,
+        "end": 477.4996,
+        "start": 477.15,
+        "word": "würfel"
+      },
+      {
+        "conf": 0.278556,
+        "end": 478.08,
+        "start": 477.4996,
+        "word": "werden"
+      },
+      {
+        "conf": 0.856937,
+        "end": 478.47,
+        "start": 478.2,
+        "word": "auch"
+      },
+      {
+        "conf": 0.818993,
+        "end": 478.8,
+        "start": 478.47,
+        "word": "burgen"
+      },
+      {
+        "conf": 1.0,
+        "end": 479.19,
+        "start": 478.8,
+        "word": "germany"
+      },
+      {
+        "conf": 0.781513,
+        "end": 479.37,
+        "start": 479.19,
+        "word": "oder"
+      },
+      {
+        "conf": 0.851718,
+        "end": 479.91,
+        "start": 479.43,
+        "word": "nein"
+      },
+      {
+        "conf": 1.0,
+        "end": 480.42,
+        "start": 480.18,
+        "word": "a"
+      },
+      {
+        "conf": 1.0,
+        "end": 480.93,
+        "start": 480.51,
+        "word": "b"
+      },
+      {
+        "conf": 1.0,
+        "end": 482.61,
+        "start": 481.86,
+        "word": "reaktion"
+      },
+      {
+        "conf": 0.777875,
+        "end": 482.76,
+        "start": 482.61,
+        "word": "ein"
+      },
+      {
+        "conf": 1.0,
+        "end": 483.18,
+        "start": 482.76,
+        "word": "rückgabe"
+      },
+      {
+        "conf": 1.0,
+        "end": 483.42,
+        "start": 483.18,
+        "word": "neue"
+      },
+      {
+        "conf": 0.469327,
+        "end": 483.84,
+        "start": 483.42,
+        "word": "der"
+      },
+      {
+        "conf": 0.647875,
+        "end": 484.510225,
+        "start": 483.99,
+        "word": "argentinier"
+      },
+      {
+        "conf": 0.32854,
+        "end": 484.71,
+        "start": 484.510225,
+        "word": "jeder"
+      },
+      {
+        "conf": 0.630469,
+        "end": 485.16,
+        "start": 484.71,
+        "word": "antrieb"
+      },
+      {
+        "conf": 0.312248,
+        "end": 485.61,
+        "start": 485.16,
+        "word": "bauer"
+      }
+    ],
+    "text": "würfel werden auch burgen germany oder nein a b reaktion ein rückgabe neue der argentinier jeder antrieb bauer"
+  }
+]
