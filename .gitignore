@@ -1,15 +1,19 @@
+# OS and editor files
 .DS_Store
+.idea/
+.vscode/
 
 # Environment variables
 .env
 
-# Python
+# Python cache and build
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
@@ -26,14 +30,31 @@ wheels/
 .installed.cfg
 *.egg
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
+# Cursor memory and metadata
+.cursor/
 
-# Audio files
+# Memory bank (project memory, not for version control)
+memory-bank/
+
+# Output and generated files
+output/
+
+# Audio files (if you don't want to track them)
 *.wav
 *.mp3
 *.ogg
 *.flac
+
+# Ignore all scripts except setup and requirements
+scripts/*
+!setup.sh
+
+# Only track these at the root
+!setup.py
+!requirements.txt
+!environment.yml
+!system_requirements.txt
+
+# Only track source code and essential __init__.py
+src/voxstruct/*
+!src/voxstruct/__init__.py

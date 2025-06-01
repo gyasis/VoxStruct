@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="voxstruct",
-    version="0.1.0",
+    version="0.1.2",
     author="gyasis",
     author_email="your.email@example.com",
     description="A tool for structured audio transcription with LLM supervision",
@@ -32,7 +32,8 @@ setup(
         "litellm>=1.0.0",
         "python-dotenv>=0.19.0",
         "pydub>=0.25.1",
-        "whisper>=1.0",
+        "openai-whisper",
+        "whisper-timestamped",
         "vosk>=0.3.42",
         "anthropic>=0.3.0",
     ],

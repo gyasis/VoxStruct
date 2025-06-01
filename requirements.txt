@@ -1,36 +1,41 @@
 # Core dependencies
 python-dotenv>=1.0.0
-numpy>=1.24.3
-pandas>=2.0.3
+httpx==0.27.2 # Pinned to resolve an issue with openai client init
+# numpy>=1.24.3 # numpy is a transitive dependency, let other packages manage it or specify if direct features are used
+# pandas>=2.0.3 # pandas is a transitive dependency
 requests>=2.31.0
 pytest>=7.0.0  # For testing
 
 # Audio processing
 pydub>=0.25.1
-librosa>=0.10.1
+# librosa>=0.10.1 # librosa is a transitive dependency
 soundfile>=0.12.1
 ffmpeg-python>=0.2.0
-scipy>=1.7.0
-wave>=0.0.2
+# scipy>=1.7.0 # scipy is a transitive dependency
+# wave>=0.0.2 # wave is built-in
+# soundfile # Duplicate entry
 
 # Speech recognition engines
 openai-whisper>=20231117
 vosk>=0.3.45
-coqui-stt>=1.5.0  # Replacement for DeepSpeech
-deepgram-sdk>=2.11.0
+# coqui-stt>=1.5.0  # Assuming this is still desired, keep or remove
+# deepgram-sdk>=2.11.0 # Assuming this is still desired, keep or remove
+yt-dlp>=2023.03.04 # For YouTube downloading
+litellm>=1.15.10 # For LLM supervision
+openai>=1.55.3 # Ensure openai version is compatible with httpx<0.28
 
 # Visualization and reporting
-matplotlib>=3.5.0
-plotly>=5.0.0
-jinja2>=3.0.0
+# matplotlib>=3.5.0 # Transitive dependency
+# plotly>=5.0.0 # Transitive dependency
+# jinja2>=3.0.0 # Transitive dependency
 
 # Utilities
-wget>=3.2
+# wget>=3.2 # Not directly used by core app, consider removing if not needed by a script
 tqdm>=4.65.0
-typing-extensions>=4.0.0
-pathlib>=1.0.1
+# typing-extensions>=4.0.0 # Transitive dependency
+# pathlib>=1.0.1 # built-in
 
-# Deep Learning
-torch>=2.0.0
-torchaudio>=2.0.0
-numba>=0.55.0 
+# Deep Learning (primarily for Whisper, torch/torchaudio are its deps)
+# torch>=2.0.0 # Transitive dependency of openai-whisper
+# torchaudio>=2.0.0 # Transitive dependency of openai-whisper
+# numba>=0.55.0 # Transitive dependency, likely from librosa or other audio libs 
