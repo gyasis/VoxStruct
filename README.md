@@ -43,6 +43,9 @@ voxstruct your_audio.mp3 --llm-model openai/gpt-4
 
 # Using a local LLM via Ollama
 voxstruct your_audio.mp3 --llm-model ollama/mistral
+
+# NEW: Transcribe directly from a YouTube video link
+voxstruct 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
 ```
 
 ### As a Python Package

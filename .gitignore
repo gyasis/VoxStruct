@@ -56,5 +56,5 @@ scripts/*
 !system_requirements.txt
 
 # Only track source code and essential __init__.py
-src/voxstruct/*
-!src/voxstruct/__init__.py
+# src/voxstruct/*
+# !src/voxstruct/__init__.py
