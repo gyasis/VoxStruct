@@ -16,11 +16,13 @@ from .audio_library import AudioLibrary
 from .pause_detector import PauseDetector
 from .transcript_builder import TranscriptBuilder
 from .youtube_downloader import YoutubeDownloader
+from .audio_converter import AudioConverter
 
 __all__ = [
     'AudioProcessor',
     'AudioLibrary',
     'PauseDetector',
     'TranscriptBuilder',
-    'YoutubeDownloader'
+    'YoutubeDownloader',
+    'AudioConverter'
 ]
