@@ -16,7 +16,7 @@ A powerful tool for structured audio transcription with LLM supervision. VoxStru
 You can install VoxStruct using pip:
 
 ```bash
-pip install voxstruct
+pip install git+[https://github.com/owner/repo.git](https://github.com/gyasis/VoxStruct.git)
 ```
 
 For development installation:
