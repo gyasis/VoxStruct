@@ -1,9 +1,56 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools_scm]
-write_to = "src/voxstruct/_version.py"
+[project]
+name = "voxstruct"
+version = "0.2.1"
+description = "Structured audio transcription with LLM supervision"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "gyasis" }]
+
+# Core stays LIGHT — no torch. Speech-to-text is offloaded to a remote ASR
+# sidecar by default (VOXSTRUCT_ASR_BACKEND=remote). For on-box Whisper/Vosk,
+# install the optional [local-asr] extra, which pulls torch.
+dependencies = [
+    "openai>=1.55.3",
+    "litellm>=1.15.10",
+    "anthropic>=0.3.0",
+    "python-dotenv>=1.0.0",
+    "pydub>=0.25.1",
+    "audioop-lts>=0.2.1; python_version >= '3.13'",  # stdlib `audioop` removed in 3.13 (PEP 594); pydub needs it
+    "soundfile>=0.12.1",
+    "ffmpeg-python>=0.2.0",
+    "yt-dlp>=2023.03.04",
+    "tqdm>=4.65.0",
+    "requests>=2.31.0",
+    "httpx>=0.27,<0.28",
+]
+
+[project.optional-dependencies]
+# On-box ASR — heavy (torch). Only needed when NOT using the remote sidecar.
+local-asr = [
+    "openai-whisper",
+    "whisper-timestamped",
+    "vosk>=0.3.45",
+]
+dev = [
+    "pytest>=7.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=3.9",
+]
+
+[project.scripts]
+voxstruct = "voxstruct.main:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.black]
 line-length = 88
@@ -16,4 +63,4 @@ multi_line_output = 3
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-addopts = "-ra -q" 
+addopts = "-ra -q"

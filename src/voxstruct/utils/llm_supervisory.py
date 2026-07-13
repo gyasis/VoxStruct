@@ -13,12 +13,9 @@ import json
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime
 from litellm import completion
-import litellm # Import litellm to set verbose mode
-
-litellm.set_verbose = True # Enable verbose logging for litellm
 
 class LLMSupervisor:
-    def __init__(self, api_key: str = None, model: str = "gpt4all/gpt4all-j"):
+    def __init__(self, api_key: str = None, model: str = "gpt4all/gpt4all-j", api_base: str = None):
         """
         Initialize the LLM supervisor with API key and model selection.
         
@@ -35,9 +32,14 @@ class LLMSupervisor:
             raise ValueError("API key is required for cloud LLM providers")
         
         self.model = model
+        # Optional override of the LLM endpoint (e.g. a LAN Ollama at
+        # http://<host>:11434) so structuring runs off-box. None = provider default.
+        self.api_base = api_base or os.getenv("VOXSTRUCT_LLM_API_BASE")
         # Set environment variables for the chosen provider
         if "anthropic" in model:
             os.environ["ANTHROPIC_API_KEY"] = self.api_key
+        elif "gemini" in model:
+            os.environ["GEMINI_API_KEY"] = self.api_key
         elif "openai" in model:
             os.environ["OPENAI_API_KEY"] = self.api_key
 
@@ -54,6 +56,7 @@ class LLMSupervisor:
             # Simple verification prompt
             response = completion(
                 model=self.model,
+                api_base=self.api_base,
                 messages=[
                     {"role": "system", "content": "You are a helpful AI assistant. Please introduce yourself briefly."},
                     {"role": "user", "content": "Please introduce yourself and confirm you can help with transcript formatting."}
@@ -62,8 +65,16 @@ class LLMSupervisor:
                 max_tokens=200
             )
             
-            return True, response.choices[0].message.content.strip()
-            
+            content = response.choices[0].message.content
+            # Reasoning/thinking models (e.g. Gemini Pro) may spend the small
+            # verify budget on internal thinking and return empty content. A
+            # completed call with no exception still proves the model is
+            # reachable + authorized, so treat empty as success (don't trigger
+            # the silent no-LLM fallback).
+            if content:
+                return True, content.strip()
+            return True, "(model reachable — empty verify response, likely a reasoning model)"
+
         except Exception as e:
             error_msg = f"Model verification failed: {str(e)}"
             # Add provider-specific error handling
@@ -76,37 +87,46 @@ class LLMSupervisor:
             
             return False, error_msg
 
-    def validate_and_improve_transcript(self, 
+    def validate_and_improve_transcript(self,
                                       raw_transcript: str,
                                       pause_timestamps: Optional[List[float]] = None,
-                                      metadata: Optional[Dict[str, Any]] = None) -> str:
+                                      metadata: Optional[Dict[str, Any]] = None,
+                                      focus: Optional[str] = None) -> str:
         """
         Analyze and structure the transcript using the selected LLM.
-        
+
         Args:
             raw_transcript: The unformatted transcript text
             pause_timestamps: List of timestamps where pauses were detected
             metadata: Additional information about the audio/transcript
-            
+            focus: Optional free-text scope. When set, the output is restricted to
+                   content relevant to this focus and off-topic chatter / gossip is
+                   dropped (see _focus_directive).
+
         Returns:
             str: Properly formatted and structured transcript
         """
         # Prepare the prompt with context and instructions
-        prompt = self._build_structuring_prompt(raw_transcript, pause_timestamps, metadata)
-        
-        try:
-            # Call LLM using litellm
-            response = completion(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": """You are an expert at structuring transcripts.
+        prompt = self._build_structuring_prompt(raw_transcript, pause_timestamps, metadata, focus)
+
+        system_content = """You are an expert at structuring transcripts.
 Your task is to analyze the transcript and structure it with:
 1. Proper paragraphs based on topic changes and natural pauses
 2. Lists (ordered/unordered) when appropriate
 3. Headers for major topic changes
 4. Proper punctuation and formatting
 5. Correction of obvious speech-to-text errors
-6. Maintain medical/technical accuracy"""},
+6. Maintain medical/technical accuracy"""
+        if focus:
+            system_content += "\n" + self._focus_directive(focus)
+
+        try:
+            # Call LLM using litellm
+            response = completion(
+                model=self.model,
+                api_base=self.api_base,
+                messages=[
+                    {"role": "system", "content": system_content},
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.3,  # Lower temperature for more consistent formatting
@@ -126,6 +146,7 @@ Your task is to analyze the transcript and structure it with:
         try:
             response = completion(
                 model=self.model,
+                api_base=self.api_base,
                 messages=[
                     {"role": "system", "content": """Analyze this transcript and identify:
 1. Main topics discussed
@@ -154,6 +175,7 @@ Your task is to analyze the transcript and structure it with:
         try:
             response = completion(
                 model=self.model,
+                api_base=self.api_base,
                 messages=[
                     {"role": "system", "content": """Analyze this transcript's formatting and suggest improvements for:
 1. Paragraph structure
@@ -174,10 +196,30 @@ Your task is to analyze the transcript and structure it with:
             print(f"Error generating formatting suggestions: {e}")
             return {"error": str(e)}
 
+    @staticmethod
+    def _focus_directive(focus: str) -> str:
+        """Instruction block that restricts the output to a given scope.
+
+        Completeness is deliberately overridden: only content relevant to `focus`
+        is kept, and anything ambiguous between substance and gossip is dropped.
+        """
+        return (
+            "\nCONTENT FOCUS (this overrides completeness — do NOT include everything):\n"
+            f"Keep ONLY material relevant to: {focus}\n"
+            "- Omit unrelated conversation, personal or company gossip, side chatter, "
+            "complaints about people, and names mentioned only in passing.\n"
+            "- When it is a judgment call whether something is on-scope substance "
+            "(e.g. a requirement, decision, task, or fact) versus incidental gossip, "
+            "LEAVE IT OUT.\n"
+            "- Do NOT invent, infer, or embellish content that is not in the transcript. "
+            "If little is on-scope, return only the little that is."
+        )
+
     def _build_structuring_prompt(self,
                                 raw_transcript: str,
                                 pause_timestamps: Optional[List[float]] = None,
-                                metadata: Optional[Dict[str, Any]] = None) -> str:
+                                metadata: Optional[Dict[str, Any]] = None,
+                                focus: Optional[str] = None) -> str:
         """Build the prompt for the LLM with all available context."""
         prompt_parts = [
             "Please structure and format this transcript.",
@@ -185,6 +227,8 @@ Your task is to analyze the transcript and structure it with:
             raw_transcript,
             "\nConsider the following:"
         ]
+        if focus:
+            prompt_parts.append(self._focus_directive(focus))
         
         if pause_timestamps:
             prompt_parts.append("\nNatural pauses were detected at these points (in seconds):")

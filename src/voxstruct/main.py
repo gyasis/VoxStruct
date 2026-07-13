@@ -26,6 +26,7 @@ from voxstruct.utils.transcript_builder import TranscriptBuilder
 from voxstruct.utils.llm_supervisory import LLMSupervisor
 from voxstruct.utils.youtube_downloader import YoutubeDownloader # Added YoutubeDownloader
 from voxstruct.utils.config import SILENCE_THRESHOLD, MIN_SILENCE_LENGTH
+from voxstruct.asr import get_asr_backend
 # Removed duplicate json import
 
 def create_markdown_header(metadata: dict) -> str:
@@ -89,13 +90,21 @@ def main():
     parser.add_argument("--language", help="Source language code (e.g., en, de)")
     parser.add_argument("--no-llm", action="store_true", help="Disable LLM supervision")
     parser.add_argument("--llm-model", default="openai/gpt-4o-mini",
-                      help="LLM model to use (e.g., openai/gpt-4, anthropic/claude-3, ollama/mistral)")
+                      help="LLM model to use (e.g., openai/gpt-4o-mini, anthropic/claude-3, "
+                           "gemini/gemini-flash-latest, ollama/mistral)")
+    parser.add_argument("--focus", default=os.getenv("VOXSTRUCT_FOCUS"),
+                      help="Restrict the structured output to content relevant to this focus "
+                           "(free text). Off-topic chatter / gossip / passing name-drops are "
+                           "dropped; when it's a judgment call, it's left out. Env: VOXSTRUCT_FOCUS")
     parser.add_argument("--timestamp-granularity", default="chunk", choices=["chunk", "word"],
                       help="Level of detail for timestamps ('chunk' or 'word')")
     args = parser.parse_args()
     
-    # Load environment variables, overriding existing ones if present in .env
-    load_dotenv('/home/gyasis/Documents/code/VoxStruct/.env',override=True)
+    # Load environment variables from a .env at the project root (if present).
+    # override=False so real environment vars win; search upward from cwd too.
+    project_env = Path(__file__).resolve().parents[2] / ".env"
+    load_dotenv(project_env, override=False)
+    load_dotenv(override=False)
     
     # Get API keys
     openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -103,7 +112,10 @@ def main():
     
     # Determine which API key to use based on the selected model
     api_key = None
-    if "openai" in args.llm_model:
+    if "gemini" in args.llm_model:
+        # litellm reads GEMINI_API_KEY for the Google AI Studio provider.
+        api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    elif "openai" in args.llm_model:
         api_key = openai_api_key
     elif "anthropic" in args.llm_model:
         api_key = anthropic_api_key
@@ -148,70 +160,91 @@ def main():
             print("Failed to load audio. Exiting.")
             return
         
-        # === Pause Detection ===
-        silence_thresh = SILENCE_THRESHOLD
-        min_silence_len = MIN_SILENCE_LENGTH
-        pause_detector = PauseDetector(silence_thresh=silence_thresh, min_silence_len=min_silence_len)
-        pause_timestamps = pause_detector.detect_pauses(audio_segment)
-        print("\nDetected pause timestamps (ms):", pause_timestamps)
-        
-        # === Speech Recognition Configuration ===
-        config = {
-            "language": args.language
-        }
-        
-        if args.engine == "whisper":
-            config["model_name"] = args.model
-        else:  # vosk (only remaining option)
-            config["model_path"] = args.model
-        
-        # Initialize speech recognizer, passing granularity
-        speech_recognizer = SpeechRecognizer(
-            args.engine, 
-            granularity=args.timestamp_granularity, 
-            **config
-        )
-        # audio_lib = AudioLibrary(args.engine, **config) # This seems unused, commenting out for now
-        
-        # Initialize transcript builder with specified granularity
-        transcript_builder = TranscriptBuilder(granularity=args.timestamp_granularity)
-        
-        # === Process Audio in Chunks ===
-        chunks = audio_processor.get_chunks()
-        current_time_ms = 0 # Keep track of absolute time in milliseconds
-        
-        print(f"\nTranscribing with {args.engine.upper()} (Granularity: {args.timestamp_granularity})...")
-        for i, chunk in enumerate(chunks, 1):
-            print(f"\rProcessing chunk {i}/{len(chunks)}...", end="", flush=True)
-            
-            # Transcribe chunk
-            result = speech_recognizer.transcribe_audio(chunk)
-            
-            # Add to transcript based on granularity
-            if result and result.get("text"): # Check if transcription was successful
-                if args.timestamp_granularity == "word":
-                    word_segments = result.get("segments", [])
-                    # Check if we actually got word segments (start time is not None)
-                    if word_segments and word_segments[0].get("start") is not None:
-                       transcript_builder.add_word_segments(word_segments, current_time_ms)
-                    else:
-                       # Fallback to chunk if word timings weren't available from recognizer
-                       print(f"Warning: Word timestamps not available for chunk {i}, adding as chunk.", file=sys.stderr) # Warn user
-                       end_time_ms = current_time_ms + len(chunk)
-                       transcript_builder.add_chunk_segment(result["text"], current_time_ms, end_time_ms, confidence=result.get("confidence"))
-                else: # Granularity is "chunk"
-                    start_time_ms = current_time_ms
-                    end_time_ms = current_time_ms + len(chunk)
-                    transcript_builder.add_chunk_segment(result["text"], start_time_ms, end_time_ms, confidence=result.get("confidence"))
-            elif result and result.get("error"):
-                 print(f"\nError transcribing chunk {i}: {result.get('error')}", file=sys.stderr)
-            
-            current_time_ms += len(chunk) # Advance time by chunk duration
-        
-        print("\n")  # New line after progress
-        
-        # === Build Raw Transcript ===
-        raw_transcript = transcript_builder.build_transcript()
+        # === ASR backend selection (remote offload vs builtin) ===
+        # Track the engine/model actually used, so the metadata header is truthful
+        # (builtin uses args; remote reports the sidecar it offloaded to).
+        used_engine = args.engine
+        used_model = args.model
+        asr_backend = get_asr_backend()
+        if asr_backend is not None:
+            print(f"\nOffloading transcription to remote ASR sidecar: {asr_backend.base_url}")
+            used_engine = "whisper (remote sidecar)"
+            used_model = asr_backend.model or "sidecar-default"
+            asr_result = asr_backend.transcribe(
+                processed_audio_file_path,
+                language=args.language,
+                word_timestamps=(args.timestamp_granularity == "word"),
+            )
+            raw_transcript = asr_result.text or ""
+            # Local pipeline not run; placeholders for the metadata block below.
+            pause_timestamps = []
+            chunks = []
+            builder_metadata = {"segment_count": len(asr_result.segments)}
+        else:
+            # === Pause Detection ===
+            silence_thresh = SILENCE_THRESHOLD
+            min_silence_len = MIN_SILENCE_LENGTH
+            pause_detector = PauseDetector(silence_thresh=silence_thresh, min_silence_len=min_silence_len)
+            pause_timestamps = pause_detector.detect_pauses(audio_segment)
+            print("\nDetected pause timestamps (ms):", pause_timestamps)
+
+            # === Speech Recognition Configuration ===
+            config = {
+                "language": args.language
+            }
+
+            if args.engine == "whisper":
+                config["model_name"] = args.model
+            else:  # vosk (only remaining option)
+                config["model_path"] = args.model
+
+            # Initialize speech recognizer, passing granularity
+            speech_recognizer = SpeechRecognizer(
+                args.engine, 
+                granularity=args.timestamp_granularity, 
+                **config
+            )
+            # audio_lib = AudioLibrary(args.engine, **config) # This seems unused, commenting out for now
+
+            # Initialize transcript builder with specified granularity
+            transcript_builder = TranscriptBuilder(granularity=args.timestamp_granularity)
+
+            # === Process Audio in Chunks ===
+            chunks = audio_processor.get_chunks()
+            current_time_ms = 0 # Keep track of absolute time in milliseconds
+
+            print(f"\nTranscribing with {args.engine.upper()} (Granularity: {args.timestamp_granularity})...")
+            for i, chunk in enumerate(chunks, 1):
+                print(f"\rProcessing chunk {i}/{len(chunks)}...", end="", flush=True)
+
+                # Transcribe chunk
+                result = speech_recognizer.transcribe_audio(chunk)
+
+                # Add to transcript based on granularity
+                if result and result.get("text"): # Check if transcription was successful
+                    if args.timestamp_granularity == "word":
+                        word_segments = result.get("segments", [])
+                        # Check if we actually got word segments (start time is not None)
+                        if word_segments and word_segments[0].get("start") is not None:
+                           transcript_builder.add_word_segments(word_segments, current_time_ms)
+                        else:
+                           # Fallback to chunk if word timings weren't available from recognizer
+                           print(f"Warning: Word timestamps not available for chunk {i}, adding as chunk.", file=sys.stderr) # Warn user
+                           end_time_ms = current_time_ms + len(chunk)
+                           transcript_builder.add_chunk_segment(result["text"], current_time_ms, end_time_ms, confidence=result.get("confidence"))
+                    else: # Granularity is "chunk"
+                        start_time_ms = current_time_ms
+                        end_time_ms = current_time_ms + len(chunk)
+                        transcript_builder.add_chunk_segment(result["text"], start_time_ms, end_time_ms, confidence=result.get("confidence"))
+                elif result and result.get("error"):
+                     print(f"\nError transcribing chunk {i}: {result.get('error')}", file=sys.stderr)
+
+                current_time_ms += len(chunk) # Advance time by chunk duration
+
+            print("\n")  # New line after progress
+
+            # === Build Raw Transcript ===
+            raw_transcript = transcript_builder.build_transcript()
         print("\nRaw Transcript:")
         print("-" * 80)
         print(raw_transcript)
@@ -220,8 +253,12 @@ def main():
         # === LLM Supervision ===
         if not args.no_llm:
             print(f"\nImproving transcript with LLM supervision using {args.llm_model}...")
+            if args.focus:
+                print(f"Focus filter active — keeping only content relevant to: {args.focus}")
             llm_supervisor = LLMSupervisor(api_key, args.llm_model)
-            final_transcript = llm_supervisor.validate_and_improve_transcript(raw_transcript)
+            final_transcript = llm_supervisor.validate_and_improve_transcript(
+                raw_transcript, focus=args.focus
+            )
         else:
             final_transcript = raw_transcript
         
@@ -235,14 +272,14 @@ def main():
             f.write(raw_transcript)
         
         # Get metadata from builder and add execution specifics
-        builder_metadata = transcript_builder.get_metadata()
+        builder_metadata = transcript_builder.get_metadata() if asr_backend is None else builder_metadata
         metadata = {
             # Execution parameters
             "audio_file": processed_audio_file_path, # This will be the path to the temp downloaded file for YouTube
             "original_source": args.audio_file, # Keep track of the original input (URL or local path)
             "output_basename": output_basename,
-            "engine": args.engine,
-            "model": args.model,
+            "engine": used_engine,
+            "model": used_model,
             "language": args.language,
             "llm_model": args.llm_model if not args.no_llm else None,
             "pause_timestamps": pause_timestamps,
