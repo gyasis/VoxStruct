@@ -36,6 +36,14 @@ wheels/
 # Memory bank (project memory, not for version control)
 memory-bank/
 
+# uv virtualenv
+.venv/
+
+# Internal — session memory, recovery archive, synthesis notes (not for the repo)
+.memory/
+RECOVERY/
+SYNTHESIS_NOTES.md
+
 # Output and generated files
 output/
 
