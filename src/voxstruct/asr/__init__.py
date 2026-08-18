@@ -3,13 +3,15 @@
 A backend turns an audio file into a `TranscriptResult`. The default (`builtin`)
 keeps VoxStruct's in-process Whisper/Vosk path; `remote` offloads transcription
 to an HTTP ASR service (e.g. the Atelier MLX-whisper sidecar) so this machine
-stays low-compute. The running endpoint is supplied via environment config and
-is never committed.
+stays low-compute; `modal` runs whisper on a rented GPU when no sidecar is
+reachable and nothing is installed locally. The running endpoint is supplied via
+environment config and is never committed.
 """
 
 import os
 
 from .base import ASRBackend, TranscriptResult
+from .modal_gpu import ModalBackend
 from .remote_http import RemoteHTTPBackend
 
 
@@ -17,10 +19,14 @@ def get_asr_backend():
     """Return an ASRBackend per env config, or None to use the builtin path.
 
     Env:
-      VOXSTRUCT_ASR_BACKEND   builtin (default) | remote
+      VOXSTRUCT_ASR_BACKEND   builtin (default) | remote | modal
       VOXSTRUCT_ASR_URL       base URL of the remote sidecar (remote only)
       VOXSTRUCT_ASR_TOKEN     optional bearer token
       VOXSTRUCT_ASR_MODEL     optional model alias / HF repo (e.g. turbo)
+      VOXSTRUCT_MODAL_APP     deployed Modal app name (modal only)
+      VOXSTRUCT_MODAL_FUNCTION  deployed function name (modal only)
+      VOXSTRUCT_DIARIZE       1/true to return speaker labels (modal only)
+      VOXSTRUCT_NUM_SPEAKERS  exact speaker count for diarization (modal only)
     """
     backend = os.getenv("VOXSTRUCT_ASR_BACKEND", "builtin").strip().lower()
     if backend in ("", "builtin", "local-builtin"):
@@ -37,7 +43,17 @@ def get_asr_backend():
             token=os.getenv("VOXSTRUCT_ASR_TOKEN"),
             model=os.getenv("VOXSTRUCT_ASR_MODEL"),
         )
+    if backend == "modal":
+        speakers = os.getenv("VOXSTRUCT_NUM_SPEAKERS", "").strip()
+        return ModalBackend(
+            app_name=os.getenv("VOXSTRUCT_MODAL_APP", "voxstruct-asr"),
+            function_name=os.getenv("VOXSTRUCT_MODAL_FUNCTION", "transcribe"),
+            model=os.getenv("VOXSTRUCT_ASR_MODEL"),
+            diarize=os.getenv("VOXSTRUCT_DIARIZE", "").strip().lower() in ("1", "true", "yes"),
+            num_speakers=int(speakers) if speakers.isdigit() else None,
+        )
     raise ValueError(f"unknown VOXSTRUCT_ASR_BACKEND: {backend!r}")
 
 
-__all__ = ["ASRBackend", "TranscriptResult", "RemoteHTTPBackend", "get_asr_backend"]
+__all__ = ["ASRBackend", "TranscriptResult", "RemoteHTTPBackend", "ModalBackend",
+           "get_asr_backend"]
