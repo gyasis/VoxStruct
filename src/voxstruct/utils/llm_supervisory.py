@@ -486,8 +486,11 @@ Your task is to analyze the transcript and structure it with:
             print(f"Section ranking failed ({e}); keeping talk order")
             return list(range(len(titles)))
 
-    def _write_section(self, voice, doc_title, outline, name, source, retries):
-        """One section as prose; (body or None, facts wanted, missing, added, bad quotes, attempts)."""
+    def _write_section(self, voice, doc_title, outline, name, source, retries, known=None):
+        """One section as prose; (body or None, facts wanted, missing, added, bad quotes, attempts).
+
+        `known` is the text a number must appear in to not count as invented (default: source)."""
+        known = known or source
         f = self.facts(source)
         wanted = f["numbers"] + f["terms"]
         base = self._SECTION_PROMPT.format(voice=voice, title=doc_title, outline=outline,
@@ -502,7 +505,9 @@ Your task is to analyze the transcript and structure it with:
                 print(f"Section '{name}': writing failed ({e})")
                 continue
             missing = self.missing_facts(source, draft)
-            added = self.added_numbers(source, draft)
+            # Invented = said nowhere in the talk or title. Checking only this section rejected
+            # correct names: captions write "Inkling Too Mini" and say "Inkling 2" once, elsewhere.
+            added = self.added_numbers(known, draft)
             quotes = self.unfaithful_quotes(source, draft)
             if not (missing or added or quotes):
                 return draft, wanted, [], [], [], attempts
@@ -630,7 +635,8 @@ Your task is to analyze the transcript and structure it with:
         source = "\n\n".join(paragraphs[i] for i in idxs)
         stamps = [m.group(1) for i in idxs if (m := self._TS_RE.match(paragraphs[i]))]
         body, wanted, missing, added, quotes, attempts = self._write_section(
-            st["voice"], doc_title, outline, name, source, retries)
+            st["voice"], doc_title, outline, name, source, retries,
+            known="\n\n".join(paragraphs) + "\n" + doc_title)
         verbatim = body is None
         if verbatim:
             print(f"Section '{name}': kept source text; left out {missing}, added {added}, "
@@ -671,7 +677,7 @@ Your task is to analyze the transcript and structure it with:
         except Exception as e:
             print(f"Opening block: failed ({e})")
             return None
-        added = self.added_numbers(source, text)
+        added = self.added_numbers(source + "\n" + title, text)
         if added:
             print(f"Opening block: dropped, it states numbers not in the transcript: {added}")
             return None
