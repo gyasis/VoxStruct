@@ -53,21 +53,33 @@ call for the provider named in the model string, so a Gemini key with `openai/..
 `Incorrect API key provided: AIzaSy...`. Select the key from the model string. It never
 writes the key into the process environment, so other clients keep their own keys.
 
-## Structure without losing facts — `structure_report` / `structure_lossless`
+## Speech to a document — `structure_report(paragraphs, title=, style=)`
 
 `validate_and_improve_transcript` rewrites a whole block in one call and drops facts: on two
-YouTube talks it kept 42–79% of the numbers. For a transcript that must stay a record, use:
+YouTube talks it kept 42–79% of the numbers. To turn speech into a document, use
+`structure_report`. It writes finished prose (paragraphs with topic sentences, lists and tables
+only where the content is one) in one of four shapes:
 
-| Method | Output | Guarantee |
+| `style` | Shape | Section order |
 |---|---|---|
-| `structure_lossless(paragraphs)` | the paragraphs unchanged, with `## Section` headers | byte-for-byte text |
-| `structure_report(paragraphs)` | per-section compact report, filler removed, `## Title [hh:mm:ss]` | every number and identifier of the section kept, no number added; a failing section is retried once, then kept verbatim |
+| `article` (default) | `# Title`, italic standfirst, `## Topic [hh:mm:ss]` | talk order |
+| `news` | `# Title`, lede + nut graf, `## Topic [hh:mm:ss]` | by news importance |
+| `paper` | `# Title`, `## Abstract`, Background, Approach, Findings, Discussion, Limitations | content regrouped by role |
+| `report` | `# Title`, `## Summary`, Context, Details, Decisions and actions, Open questions | content regrouped by role |
 
-Both send only numbered paragraphs to the LLM to pick sections (`find_sections`), and the
-report rewrites one section per call. `facts()`, `missing_facts()` and `added_numbers()` are
-the checks; spoken numbers count ("six point three" = 6.3, "8 and a half" = 8.5). The checks
-cover numbers and identifiers, not the meaning of every sentence. Judge a report on these
-checks, never on word count: removing filler is the point.
+Every paragraph lands in exactly one section. A section over `section_chars` (6000) is split
+into `###` topic subsections, because one long rewrite drops facts. Regrouped sections end with
+`*Transcript: [hh:mm:ss], ...*`.
+
+**Checks (by code, per section):** `missing_facts` — every number and identifier of the source is
+in the rewrite (spoken numbers count: "six point three" = 6.3, "8 and a half" = 8.5);
+`added_numbers` — no digit the speaker never said (list numbering ignored); `unfaithful_quotes` —
+a quotation must be the transcript's exact words. A failing section is retried once with the
+problem named, then kept verbatim. The opening block is dropped if it invents a number. The
+checks do not cover the meaning of every sentence. Judge output on them, never on word count:
+removing filler is the point.
+
+`structure_lossless(paragraphs)` adds `##` headers and leaves every word unchanged.
 
 ## Other things worth knowing
 
