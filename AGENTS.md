@@ -67,6 +67,10 @@ only where the content is one) in one of four shapes:
 | `paper` | `# Title`, `## Abstract`, Background, Approach, Findings, Discussion, Limitations | content regrouped by role |
 | `report` | `# Title`, `## Summary`, Context, Details, Decisions and actions, Open questions | content regrouped by role |
 
+`style="auto"` lets `choose_style()` pick one from the title and the transcript opening (one
+call; "article" if the reply is unusable). Checked on samples: meeting → report, lecture →
+paper, announcement → news, commentary/review → article.
+
 Every paragraph lands in exactly one section. A section over `section_chars` (6000) is split
 into `###` topic subsections, because one long rewrite drops facts. Regrouped sections end with
 `*Transcript: [hh:mm:ss], ...*`.

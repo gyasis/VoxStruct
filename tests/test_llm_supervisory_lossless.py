@@ -289,3 +289,23 @@ def test_numbered_list_markers_are_not_invented_numbers():
     src = "First score every expert, then group them, then glue each group, then distill."
     out = "The process has four steps:\n1. Score every expert.\n2. Group them.\n3. Glue each group.\n4. Distill."
     assert LLMSupervisor.added_numbers(src, out) == []
+
+
+def test_auto_style_uses_choice(monkeypatch):
+    calls = []
+    replies = ["Paper.", json.dumps({"Background": [0, 1], "Findings": [2, 3]}),
+               "Background prose.", "Findings: 16 GB of RAM.", "Abstract prose."]
+
+    def fake(**k):
+        calls.append(k["messages"][0]["content"])
+        return _reply(replies[len(calls) - 1])
+
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="T", style="auto")
+    assert "## Abstract" in md and {r["style"] for r in rep} == {"paper"}
+
+
+def test_choose_style_falls_back_to_article(monkeypatch):
+    monkeypatch.setattr(ls, "completion", lambda **k: _reply("A podcast transcript."))
+    assert _sup().choose_style(PARAS, "T") == "article"
