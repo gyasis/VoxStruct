@@ -518,13 +518,37 @@ Your task is to analyze the transcript and structure it with:
             prompt = base + "\n\n" + " ".join(fix)
         return None, wanted, missing, added, quotes, attempts
 
+    _STYLE_PROMPT = (
+        "Pick the written form that best fits this spoken transcript. Answer with ONE word:\n"
+        "article - commentary, explainer, review, opinion, tutorial or interview for a general reader\n"
+        "news - an announcement or report of a recent event, release or result\n"
+        "paper - a lecture, research talk or technical deep-dive on a method and its evidence\n"
+        "report - a meeting, briefing, status update or discussion that ends in decisions or actions\n"
+        "\nTitle: {title}\n\nTRANSCRIPT (opening):\n{text}"
+    )
+
+    def choose_style(self, paragraphs: List[str], title: Optional[str] = None,
+                     sample_chars: int = 12000) -> str:
+        """Pick the document style for a transcript from its title and opening; "article" if
+        the reply is not one of the styles."""
+        text = "\n\n".join(paragraphs)[:sample_chars]
+        try:
+            reply = self._complete(self._STYLE_PROMPT.format(title=title or "(none)", text=text), 0.0)
+            word = re.findall(r"[a-z]+", reply.lower())
+            pick = next((w for w in word if w in self.STYLES), None)
+        except Exception as e:
+            print(f"Style choice failed ({e}); using article")
+            pick = None
+        return pick or "article"
+
     def structure_report(self, paragraphs: List[str], window_chars: int = 40000,
                          header_level: int = 2, retries: int = 1, title: Optional[str] = None,
                          style: str = "article", section_chars: int = 6000
                          ) -> Tuple[str, List[Dict[str, Any]]]:
         """Turn a spoken transcript into a written document that keeps every hard fact.
 
-        `style` picks the document shape (see STYLES): "article" (magazine feature, talk order),
+        `style` picks the document shape (see STYLES), or "auto" to let choose_style() pick it:
+        "article" (magazine feature, talk order),
         "news" (lede first, sections by importance), "paper" (Abstract, Background, Approach,
         Findings, Discussion, Limitations) or "report" (Summary, Context, Details, Decisions and
         actions, Open questions).
@@ -542,12 +566,15 @@ Your task is to analyze the transcript and structure it with:
            sections and dropped if it states a number the transcript does not.
 
         Returns (markdown, sections), each section:
-        {"title", "paragraphs", "start", "facts", "missing", "added", "quotes", "attempts",
+        {"style", "title", "paragraphs", "start", "facts", "missing", "added", "quotes", "attempts",
          "verbatim"}.
         """
+        if style == "auto":
+            style = self.choose_style(paragraphs, title)
+            print(f"Document style chosen: {style}")
         if style not in self.STYLES:
-            raise ValueError(f"unknown style {style!r}; choose from {sorted(self.STYLES)}")
-        st = self.STYLES[style]
+            raise ValueError(f"unknown style {style!r}; choose from {sorted(self.STYLES)} or 'auto'")
+        st = dict(self.STYLES[style], name=style)
         doc_title = title or "(untitled talk)"
 
         if st["outline"]:
@@ -615,7 +642,7 @@ Your task is to analyze the transcript and structure it with:
         elif stamps and st["stamps"] == "footer":
             body += "\n\n*Transcript: " + ", ".join(f"[{t}]" for t in stamps) + "*"
         md.append(f"{'#' * level} {heading}\n\n{body}")
-        report.append({"title": name, "paragraphs": idxs, "start": stamps[0] if stamps else None,
+        report.append({"style": st["name"], "title": name, "paragraphs": idxs, "start": stamps[0] if stamps else None,
                        "facts": len(wanted), "missing": missing if verbatim else [],
                        "added": added if verbatim else [], "quotes": quotes if verbatim else [],
                        "attempts": attempts, "verbatim": verbatim})
