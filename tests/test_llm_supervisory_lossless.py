@@ -309,3 +309,20 @@ def test_auto_style_uses_choice(monkeypatch):
 def test_choose_style_falls_back_to_article(monkeypatch):
     monkeypatch.setattr(ls, "completion", lambda **k: _reply("A podcast transcript."))
     assert _sup().choose_style(PARAS, "T") == "article"
+
+
+def test_number_said_elsewhere_in_talk_is_not_invented(monkeypatch):
+    fake, _ = _sections_then("Intro: Inkling 2 Mini reuses layers.", "Hardware: Inkling 2 needs 16 GB of RAM.", "Opening.")
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = ["[00:00:01] Inkling Too Mini reuses its layers. It's called Inkling 2 Mini.", PARAS[1],
+             "[00:01:31] Inkling Too needs 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="New Open Source AI King")
+    assert not any(r["verbatim"] for r in rep) and "Inkling 2 needs 16 GB" in md
+
+
+def test_number_said_nowhere_is_still_invented(monkeypatch):
+    fake, _ = _sections_then("Intro.", "Hardware: 16 GB of RAM, from 2024.", "Hardware: 16 GB of RAM, from 2024.", "Opening.")
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="Loops")
+    assert rep[1]["verbatim"] and rep[1]["added"] == ["2024"]
