@@ -183,3 +183,109 @@ def test_and_a_half_is_kept_by_decimal():
     src = "Mini finished in 8 and a half minutes; the old one scores just 12 and a half."
     assert LLMSupervisor.missing_facts(src, "Mini finished in 8.5 minutes. The old model scores 12.5.") == []
     assert LLMSupervisor.missing_facts(src, "Mini finished in 9 minutes. The old model scores 12.5.") == ["8"]
+
+
+def test_article_has_title_standfirst_and_outline_context(monkeypatch):
+    fake, calls = _sections_then("Intro prose.", "Hardware prose with 16 GB of RAM.",
+                                 "This talk covers loops and needs 16 GB of RAM.")
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="Loops Talk")
+    assert md.startswith("# Loops Talk\n\n*This talk covers loops and needs 16 GB of RAM.*\n\n## Intro [00:00:01]")
+    assert "Sections in order: Intro | Hardware" in calls[1] and "Write the section: Hardware" in calls[2]
+    assert "magazine feature" in calls[1]
+
+
+def test_opening_with_invented_number_is_dropped(monkeypatch):
+    fake, _ = _sections_then("Intro prose.", "Hardware prose with 16 GB of RAM.",
+                             "Released in 2024, this talk needs 16 GB.")
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, _ = _sup().structure_report(paras, title="Loops Talk")
+    assert md.startswith("# Loops Talk\n\n## Intro") and "2024" not in md
+
+
+def test_unfaithful_quotes():
+    src = "[00:00:01] I think looped models are the future of local AI, honestly."
+    assert LLMSupervisor.unfaithful_quotes(src, 'The speaker says "looped models are the future of local AI".') == []
+    assert LLMSupervisor.unfaithful_quotes(src, 'The speaker says "loops will replace every model soon".') == \
+        ["loops will replace every model soon"]
+
+
+def test_paper_style_regroups_with_abstract_and_footer(monkeypatch):
+    calls = []
+    replies = [json.dumps({"Background": [0], "Approach": [1], "Findings": [2]}),
+               "Background prose.", "Approach prose.", "Findings: 16 GB of RAM.",
+               "Limitations prose.", "Abstract prose."]
+
+    def fake(**k):
+        calls.append(k["messages"][0]["content"])
+        return _reply(replies[len(calls) - 1])
+
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="Loops", style="paper")
+    names = [r["title"] for r in rep]
+    assert names == ["Background", "Approach", "Findings", "Limitations"]  # unclaimed paragraph 3 -> last section
+    assert sorted(i for r in rep for i in r["paragraphs"]) == [0, 1, 2, 3]
+    assert md.startswith("# Loops\n\n## Abstract\n\nAbstract prose.")
+    assert "*Transcript: [00:01:31]*" in md
+    assert "research paper" in calls[1]
+
+
+def test_news_style_ranks_sections(monkeypatch):
+    calls = []
+    replies = [json.dumps([{"index": 0, "title": "Intro"}, {"index": 2, "title": "Hardware"}]),
+               "[1, 0]", "Hardware: 16 GB of RAM.", "Intro prose.", "Lede prose."]
+
+    def fake(**k):
+        calls.append(k["messages"][0]["content"])
+        return _reply(replies[len(calls) - 1])
+
+    monkeypatch.setattr(ls, "completion", fake)
+    paras = [PARAS[0], PARAS[1], "[00:01:31] You need 16 GB of RAM.", "[00:02:16] Thanks."]
+    md, rep = _sup().structure_report(paras, title="Loops", style="news")
+    assert [r["title"] for r in rep] == ["Hardware", "Intro"]
+    assert md.startswith("# Loops\n\nLede prose.\n\n## Hardware [00:01:31]")
+
+
+def test_unknown_style_is_rejected():
+    import pytest
+    with pytest.raises(ValueError):
+        _sup().structure_report(PARAS, style="poem")
+
+
+def test_quotes_pair_in_order():
+    src = "[00:00:01] It is fast. Honestly the nano model is the one I would ship to players."
+    out = 'He calls it "fast" and adds that "the nano model is the one I would ship to players".'
+    assert LLMSupervisor.unfaithful_quotes(src, out) == []
+
+
+def test_large_section_is_split_into_subsections(monkeypatch):
+    calls = []
+    big = ["[00:00:%02d] " % i + ("word " * 60) + f"value {i}" for i in range(6)]
+    replies = [json.dumps({"Details": [0, 1, 2, 3, 4, 5]}),
+               json.dumps([{"index": 0, "title": "First"}, {"index": 3, "title": "Second"}]),
+               "First part: value 0, value 1, value 2.", "Second part: value 3, value 4, value 5.",
+               "Summary prose."]
+
+    def fake(**k):
+        calls.append(k["messages"][0]["content"])
+        return _reply(replies[len(calls) - 1])
+
+    monkeypatch.setattr(ls, "completion", fake)
+    md, rep = _sup().structure_report(big, title="T", style="report", section_chars=800)
+    assert "## Details\n\n### First\n\nFirst part" in md and "### Second\n\nSecond part" in md
+    assert [r["paragraphs"] for r in rep] == [[0, 1, 2], [3, 4, 5]]
+
+
+def test_number_words_in_output_are_not_invented_numbers():
+    src = "The nano model is small. It runs at 85.9 tokens."
+    out = "The nano model is the one to pick. One reason: it runs at 85.9 tokens per second."
+    assert LLMSupervisor.added_numbers(src, out) == []
+
+
+def test_numbered_list_markers_are_not_invented_numbers():
+    src = "First score every expert, then group them, then glue each group, then distill."
+    out = "The process has four steps:\n1. Score every expert.\n2. Group them.\n3. Glue each group.\n4. Distill."
+    assert LLMSupervisor.added_numbers(src, out) == []

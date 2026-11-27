@@ -150,7 +150,9 @@ Your task is to analyze the transcript and structure it with:
     _TS_RE = re.compile(r"^\[(\d\d:\d\d:\d\d)\]\s*")
     _NUM_RE = re.compile(r"\d+(?:[.,]\d+)*")
     _WORD_RE = re.compile(r"(?<![\w-])[A-Za-z][\w]*(?:[-.][\w]+)*")
-    _IDENT_SKIP = {"OK", "TV", "US", "UK"}
+    # Not facts: common capitalised words, and the platform a talk is published on (it appears
+    # in "like and subscribe" asides that the report is told to drop).
+    _IDENT_SKIP = {"OK", "TV", "US", "UK", "YouTube", "YouTuber", "YouTubers"}
 
     @staticmethod
     def _is_identifier(word: str) -> bool:
@@ -212,10 +214,10 @@ Your task is to analyze the transcript and structure it with:
         return str(int(v)) if float(v).is_integer() else f"{v:.6f}".rstrip("0").rstrip(".")
 
     @classmethod
-    def _number_values(cls, text: str) -> set:
+    def _number_values(cls, text: str, words: bool = True) -> set:
         """Every number a text states, written as digits or as words, normalised ("six point
-        three" -> "6.3", "twelve and a half" -> "12.5"). Scale words multiply ("two hundred")
-        and a written number also counts at each scale ("1.5 billion" -> "1.5", "1500000000")."""
+        three" -> "6.3", "twelve and a half" -> "12.5"). Scale words multiply ("two hundred").
+        words=False reads digits only."""
         text = re.sub(r"\[\d\d:\d\d:\d\d\]", " ", text.lower())
         vals = set()
         for m in cls._NUM_RE.finditer(text):
@@ -226,6 +228,8 @@ Your task is to analyze the transcript and structure it with:
                 pass
             if re.match(r"\s+and\s+a\s+half\b", text[m.end():]):
                 vals.add(cls._norm_num(float(core) + 0.5))
+        if not words:
+            return vals
         words = re.findall(r"[a-z]+|\d+(?:\.\d+)?", text.replace("-", " "))
         i = 0
         while i < len(words):
@@ -265,9 +269,12 @@ Your task is to analyze the transcript and structure it with:
 
     @classmethod
     def added_numbers(cls, source: str, output: str) -> List[str]:
-        """Numbers the output states that the source does not (digits or words) — invented facts."""
+        """Numbers the output writes in digits that the source does not state (in digits or
+        words) — invented facts. Number words in the output are not read: prose uses "one" as a
+        pronoun far more often than as a figure. Numbered-list markers are not read either."""
         src = cls._number_values(source)
-        out = cls._number_values(output)
+        output = re.sub(r"(?m)^\s*\d+[.)]\s", " ", output)  # list numbering is not a fact
+        out = cls._number_values(output, words=False)
         return sorted(out - src, key=lambda x: float(x))
 
     def _complete(self, prompt: str, temperature: float) -> str:
@@ -343,78 +350,305 @@ Your task is to analyze the transcript and structure it with:
             out.append(p)
         return "\n\n".join(out), [{"index": i, "title": t} for i, t in heads.items()]
 
-    _REPORT_PROMPT = (
-        "Rewrite this part of a spoken transcript as a compact technical report.\n"
-        "Keep every fact, claim, number, name, comparison, step, caveat and opinion. "
-        "Say whose opinion it is when the speaker gives one.\n"
-        "Remove filler words, repetition, greetings, and requests to like or subscribe.\n"
-        "Write short sentences (20 words or fewer) in the active voice, one fact per sentence. "
-        "Use a bullet list for a list of items or steps. Do not add anything that is not in "
-        "the text. Do not write a heading.\n"
+    # Document styles for structure_report(). Each style sets:
+    #   outline: None = topic sections in talk order; a list = fixed sections the content is
+    #            regrouped into (each item "Name: what belongs there").
+    #   rank:    order topic sections by importance instead of talk order.
+    #   front:   (label, instruction) for the opening block written from the finished sections.
+    #   voice:   how each section is written.
+    #   stamps:  "heading" puts the section's start time in its heading; "footer" lists the
+    #            transcript times a regrouped section draws on.
+    STYLES: Dict[str, Dict[str, Any]] = {
+        "article": {
+            "outline": None, "rank": False, "stamps": "heading",
+            "front": ("standfirst", "Write the standfirst of this magazine article: 2 or 3 "
+                      "sentences under the headline that tell the reader what the piece is "
+                      "about and why it matters."),
+            "voice": "a magazine feature: engaging but exact, explaining terms a curious "
+                     "non-specialist reader would not know",
+        },
+        "news": {
+            "outline": None, "rank": True, "stamps": "heading",
+            "front": ("lede", "Write the lede and nut graf of this news story: a first "
+                      "paragraph with the single most important news (who, what, when, why), "
+                      "then a second paragraph that says why it matters."),
+            "voice": "a newspaper story: the most important facts first, short paragraphs, "
+                     "every claim attributed",
+        },
+        "paper": {
+            "outline": ["Background: the problem, context and prior work the talk describes",
+                        "Approach: the method, design, architecture or process",
+                        "Findings: results, measurements, benchmarks and observations",
+                        "Discussion: interpretation, comparisons, implications and opinions",
+                        "Limitations: weaknesses, caveats, risks and open questions"],
+            "rank": False, "stamps": "footer",
+            "front": ("Abstract", "Write the abstract of this paper: one paragraph of 5 to 7 "
+                      "sentences covering the problem, the approach, the main findings and the "
+                      "conclusion."),
+            "voice": "a research paper: formal, precise and impersonal, with each claim tied "
+                     "to its evidence",
+        },
+        "report": {
+            "outline": ["Context: background and why the topic came up",
+                        "Details: the substance, topic by topic",
+                        "Decisions and actions: what was decided, recommended or must be done, "
+                        "and by whom",
+                        "Open questions: unresolved points, risks and follow-ups"],
+            "rank": False, "stamps": "footer",
+            "front": ("Summary", "Write the executive summary of this report: one paragraph of "
+                      "4 to 6 sentences with the key points and conclusions a busy reader needs."),
+            "voice": "a business or technical briefing report: direct, scannable and complete",
+        },
+    }
+
+    _SECTION_PROMPT = (
+        "You are writing one section of {voice}. The source is a spoken transcript.\n"
+        "Document: {title}\nSections in order: {outline}\nWrite the section: {section}\n\n"
+        "Write finished prose for a reader, not notes. Use paragraphs of 3 to 6 connected "
+        "sentences. Build each paragraph around one idea and open it with a sentence that "
+        "states that idea. Link the ideas with transitions. Use a bulleted or numbered list "
+        "only for a real list (steps, specifications, options), and a markdown table only when "
+        "several things are compared on the same attributes.\n"
+        "State facts directly. Attribute opinions, judgements and predictions to the speaker. "
+        "Call the speaker \"the speaker\" or by the name the transcript gives; never guess a "
+        "gender. You may quote the speaker, but a quotation must copy the transcript words "
+        "exactly.\n"
+        "Leave out filler, false starts, repetition, greetings, sponsor reads, self-promotion, "
+        "requests to like or subscribe, and remarks about the recording itself.\n"
+        "Keep every fact, number, name, comparison, step and caveat. Do not add anything that "
+        "is not in the transcript. Do not write a heading.\n"
+        "Use plain technical English: active voice, sentences under 25 words, one term for "
+        "one concept.\n"
         "These terms and numbers MUST appear in your text, written as here: {facts}\n\n"
         "TRANSCRIPT:\n{text}"
     )
 
-    def structure_report(self, paragraphs: List[str], window_chars: int = 40000,
-                         header_level: int = 2, retries: int = 1
-                         ) -> Tuple[str, List[Dict[str, Any]]]:
-        """Turn a spoken transcript into a compact sectioned report that keeps every hard fact.
+    _FRONT_PROMPT = (
+        "{instruction} Use only what the document below says. Do not write a heading.\n\n"
+        "DOCUMENT: {title}\n\n{body}"
+    )
 
-        1. find_sections() splits the transcript by topic.
-        2. Each section is rewritten on its own (small prompts lose less).
-        3. The rewrite must contain every fact of the section's source text (see facts()) and
-           state no number the source does not (see added_numbers()). A failing rewrite is
-           retried `retries` times, naming what is wrong. If it still fails, the section's
-           source text is kept verbatim.
+    _QUOTE_RE = re.compile(r"[\"\u201c]([^\"\u201c\u201d\n]*)[\"\u201d]")
 
-        A paragraph that starts with a [hh:mm:ss] marker puts that time in its section heading.
-        Returns (markdown, sections), each section:
-        {"index", "title", "start", "facts", "missing", "added", "attempts", "verbatim"}.
+    @classmethod
+    def unfaithful_quotes(cls, source: str, output: str) -> List[str]:
+        """Quotations in `output` (20+ characters) whose words do not appear, in order, in `source`."""
+        def norm(t):
+            return " ".join(re.findall(r"[a-z0-9']+", re.sub(r"\[\d\d:\d\d:\d\d\]", " ", t.lower())))
+        src = norm(source)
+        quotes = [q for q in cls._QUOTE_RE.findall(output) if len(q) >= 20]
+        return [q for q in quotes if norm(q) and norm(q) not in src]
+
+    def assign_sections(self, paragraphs: List[str], outline: List[str]) -> Dict[str, List[int]]:
+        """Regroup paragraphs into a fixed outline: {section name: [paragraph indices]}.
+
+        The LLM only assigns paragraph numbers. Each paragraph goes to exactly one section (the
+        first that claims it); a paragraph nobody claims goes to "Details" if the outline has it,
+        else to the last section. Nothing is dropped.
         """
-        heads = self.find_sections(paragraphs, window_chars)
-        starts = list(heads)
-        md, report = [], []
-        for n, start in enumerate(starts):
-            end = starts[n + 1] if n + 1 < len(starts) else len(paragraphs)
-            source = "\n\n".join(paragraphs[start:end])
-            m = self._TS_RE.match(paragraphs[start])
-            stamp = m.group(1) if m else None
-            f = self.facts(source)
-            wanted = f["numbers"] + f["terms"]
-            body, missing, added, attempts = None, wanted, [], 0
-            prompt = self._REPORT_PROMPT.format(facts=", ".join(wanted) or "(none)", text=source)
-            while attempts <= retries:
-                attempts += 1
-                try:
-                    draft = self._complete(prompt, 0.2)
-                except Exception as e:
-                    print(f"Report section '{heads[start]}': rewrite failed ({e})")
+        names = [o.split(":", 1)[0].strip() for o in outline]
+        numbered = "\n\n".join(f"<{i}> {p}" for i, p in enumerate(paragraphs))
+        prompt = (
+            "Assign every numbered paragraph of this transcript to ONE section of the outline. "
+            "Return ONLY a JSON object, no prose and no code fence: "
+            '{"<section name>": [paragraph numbers], ...}\n\nOUTLINE:\n'
+            + "\n".join(f"- {o}" for o in outline) + "\n\nTRANSCRIPT:\n" + numbered
+        )
+        groups: Dict[str, List[int]] = {n: [] for n in names}
+        taken = set()
+        try:
+            raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", self._complete(prompt, 0.2))
+            for name, idxs in json.loads(raw).items():
+                key = next((n for n in names if n.lower() == str(name).strip().lower()), None)
+                if key is None:
                     continue
-                missing = self.missing_facts(source, draft)
-                added = self.added_numbers(source, draft)
-                if not missing and not added:
-                    body = draft
-                    break
-                fix = []
-                if missing:
-                    fix.append("Your last version left out: " + ", ".join(missing) + ". Include them.")
-                if added:
-                    fix.append("Your last version stated numbers that are not in the transcript: "
-                               + ", ".join(added) + ". Remove them.")
-                prompt = (self._REPORT_PROMPT.format(facts=", ".join(wanted), text=source)
-                          + "\n\n" + " ".join(fix))
-            verbatim = body is None
-            if verbatim:
-                print(f"Report section '{heads[start]}': kept source text, rewrite left out "
-                      f"[{', '.join(missing)}] and added [{', '.join(added)}]")
-                body = source
-            title = heads[start] + (f" [{stamp}]" if stamp else "")
-            md.append(f"{'#' * header_level} {title}\n\n{body}")
-            report.append({"index": start, "title": heads[start], "start": stamp,
-                           "facts": len(wanted), "missing": missing if verbatim else [],
-                           "added": added if verbatim else [],
-                           "attempts": attempts, "verbatim": verbatim})
-        return "\n\n".join(md), report
+                for i in idxs if isinstance(idxs, list) else []:
+                    if isinstance(i, int) and 0 <= i < len(paragraphs) and i not in taken:
+                        groups[key].append(i)
+                        taken.add(i)
+        except Exception as e:
+            print(f"Section assignment failed ({e}); unassigned paragraphs go to one section")
+        rest = [i for i in range(len(paragraphs)) if i not in taken]
+        if rest:
+            groups["Details" if "Details" in groups else names[-1]].extend(rest)
+        return {n: sorted(v) for n, v in groups.items() if v}
+
+    def _rank_sections(self, titles: List[str], title: str) -> List[int]:
+        """Order of section positions by news importance; talk order if the reply is unusable."""
+        prompt = ("Rank these sections of a news story about \"" + title + "\" from most to least "
+                  "newsworthy. Return ONLY a JSON array of their numbers.\n"
+                  + "\n".join(f"{i}: {t}" for i, t in enumerate(titles)))
+        try:
+            order = json.loads(re.sub(r"^```(?:json)?\s*|\s*```$", "", self._complete(prompt, 0.2)))
+            order = [i for i in dict.fromkeys(order) if isinstance(i, int) and 0 <= i < len(titles)]
+            return order + [i for i in range(len(titles)) if i not in order]
+        except Exception as e:
+            print(f"Section ranking failed ({e}); keeping talk order")
+            return list(range(len(titles)))
+
+    def _write_section(self, voice, doc_title, outline, name, source, retries):
+        """One section as prose; (body or None, facts wanted, missing, added, bad quotes, attempts)."""
+        f = self.facts(source)
+        wanted = f["numbers"] + f["terms"]
+        base = self._SECTION_PROMPT.format(voice=voice, title=doc_title, outline=outline,
+                                           section=name, facts=", ".join(wanted) or "(none)",
+                                           text=source)
+        prompt, missing, added, quotes, attempts = base, wanted, [], [], 0
+        while attempts <= retries:
+            attempts += 1
+            try:
+                draft = self._complete(prompt, 0.2)
+            except Exception as e:
+                print(f"Section '{name}': writing failed ({e})")
+                continue
+            missing = self.missing_facts(source, draft)
+            added = self.added_numbers(source, draft)
+            quotes = self.unfaithful_quotes(source, draft)
+            if not (missing or added or quotes):
+                return draft, wanted, [], [], [], attempts
+            fix = []
+            if missing:
+                fix.append("Your last version left out: " + ", ".join(missing) + ". Include them.")
+            if added:
+                fix.append("Your last version stated numbers that are not in the transcript: "
+                           + ", ".join(added) + ". Remove them.")
+            if quotes:
+                fix.append("These quotations are not the transcript's exact words: "
+                           + " | ".join(quotes) + ". Quote exactly or paraphrase without quotes.")
+            prompt = base + "\n\n" + " ".join(fix)
+        return None, wanted, missing, added, quotes, attempts
+
+    def structure_report(self, paragraphs: List[str], window_chars: int = 40000,
+                         header_level: int = 2, retries: int = 1, title: Optional[str] = None,
+                         style: str = "article", section_chars: int = 6000
+                         ) -> Tuple[str, List[Dict[str, Any]]]:
+        """Turn a spoken transcript into a written document that keeps every hard fact.
+
+        `style` picks the document shape (see STYLES): "article" (magazine feature, talk order),
+        "news" (lede first, sections by importance), "paper" (Abstract, Background, Approach,
+        Findings, Discussion, Limitations) or "report" (Summary, Context, Details, Decisions and
+        actions, Open questions).
+
+        1. Sections: topic sections from find_sections(), or the style's fixed outline filled by
+           assign_sections(). Every paragraph lands in exactly one section.
+        2. Each section is written as prose on its own, with the title and outline as context.
+           A section longer than `section_chars` is split into topic subsections (###), because
+           one long rewrite drops facts.
+        3. A section is accepted only if it keeps every number and identifier of its source
+           (facts()), states no number the source does not (added_numbers()) and quotes only the
+           transcript's exact words (unfaithful_quotes()). It is retried `retries` times naming
+           the problem; if it still fails, its source text is kept verbatim.
+        4. The opening block (standfirst, lede, abstract or summary) is written from the finished
+           sections and dropped if it states a number the transcript does not.
+
+        Returns (markdown, sections), each section:
+        {"title", "paragraphs", "start", "facts", "missing", "added", "quotes", "attempts",
+         "verbatim"}.
+        """
+        if style not in self.STYLES:
+            raise ValueError(f"unknown style {style!r}; choose from {sorted(self.STYLES)}")
+        st = self.STYLES[style]
+        doc_title = title or "(untitled talk)"
+
+        if st["outline"]:
+            groups = self.assign_sections(paragraphs, st["outline"])
+            plan = list(groups.items())
+        else:
+            heads = self.find_sections(paragraphs, window_chars)
+            starts = list(heads)
+            plan = [(heads[s], list(range(s, starts[n + 1] if n + 1 < len(starts) else len(paragraphs))))
+                    for n, s in enumerate(starts)]
+            if st["rank"] and len(plan) > 1:
+                plan = [plan[i] for i in self._rank_sections([p[0] for p in plan], doc_title)]
+        outline = " | ".join(name for name, _ in plan)
+
+        md, report = [], []
+        for name, idxs in plan:
+            parts = self._split_large(paragraphs, idxs, section_chars, window_chars)
+            if len(parts) > 1:
+                md.append(f"{'#' * header_level} {name}")
+                for sub, sub_idxs in parts:
+                    self._emit(md, report, st, doc_title, outline, f"{name} / {sub}", sub, sub_idxs,
+                               paragraphs, header_level + 1, retries)
+                continue
+            self._emit(md, report, st, doc_title, outline, name, name, idxs, paragraphs,
+                       header_level, retries)
+        return self._finish(md, report, st, title, doc_title, paragraphs, header_level)
+
+    def _split_large(self, paragraphs, idxs, section_chars, window_chars):
+        """[(subsection title, indices)] for a section over `section_chars`; one item otherwise.
+
+        Topic split of the section's own paragraphs; if that yields one topic, size chunks."""
+        if sum(len(paragraphs[i]) for i in idxs) <= section_chars or len(idxs) < 2:
+            return [(None, idxs)]
+        sub = self.find_sections([paragraphs[i] for i in idxs], window_chars)
+        starts = list(sub)
+        parts = [(sub[s], idxs[s:starts[n + 1] if n + 1 < len(starts) else len(idxs)])
+                 for n, s in enumerate(starts)]
+        if len(parts) > 1:
+            return parts
+        chunks, cur, size = [], [], 0
+        for i in idxs:
+            if cur and size + len(paragraphs[i]) > section_chars:
+                chunks.append(cur)
+                cur, size = [], 0
+            cur.append(i)
+            size += len(paragraphs[i])
+        chunks.append(cur)
+        return [(f"Part {n}", c) for n, c in enumerate(chunks, 1)]
+
+    def _emit(self, md, report, st, doc_title, outline, name, heading_name, idxs, paragraphs,
+              level, retries):
+        """Write one section (or subsection) and append its markdown and audit record."""
+        source = "\n\n".join(paragraphs[i] for i in idxs)
+        stamps = [m.group(1) for i in idxs if (m := self._TS_RE.match(paragraphs[i]))]
+        body, wanted, missing, added, quotes, attempts = self._write_section(
+            st["voice"], doc_title, outline, name, source, retries)
+        verbatim = body is None
+        if verbatim:
+            print(f"Section '{name}': kept source text; left out {missing}, added {added}, "
+                  f"inexact quotes {quotes}")
+            body = source
+        heading = heading_name
+        if stamps and st["stamps"] == "heading":
+            heading += f" [{stamps[0]}]"
+        elif stamps and st["stamps"] == "footer":
+            body += "\n\n*Transcript: " + ", ".join(f"[{t}]" for t in stamps) + "*"
+        md.append(f"{'#' * level} {heading}\n\n{body}")
+        report.append({"title": name, "paragraphs": idxs, "start": stamps[0] if stamps else None,
+                       "facts": len(wanted), "missing": missing if verbatim else [],
+                       "added": added if verbatim else [], "quotes": quotes if verbatim else [],
+                       "attempts": attempts, "verbatim": verbatim})
+
+    def _finish(self, md, report, st, title, doc_title, paragraphs, header_level):
+        """Prepend the title and the style's opening block."""
+        front = []
+        if title:
+            front = [f"# {title}"]
+        label, instruction = st["front"]
+        text = self._front(instruction, doc_title, md, "\n\n".join(paragraphs))
+        if text:
+            if label[0].isupper():
+                front.append(f"{'#' * header_level} {label}\n\n{text}")
+            elif label == "standfirst":
+                front.append(f"*{text}*")
+            else:
+                front.append(text)
+        return "\n\n".join(front + md), report
+
+    def _front(self, instruction: str, title: str, sections_md: List[str], source: str) -> Optional[str]:
+        """Opening block written from the finished sections; None if it fails or invents a number."""
+        try:
+            text = self._complete(self._FRONT_PROMPT.format(
+                instruction=instruction, title=title, body="\n\n".join(sections_md)), 0.2)
+        except Exception as e:
+            print(f"Opening block: failed ({e})")
+            return None
+        added = self.added_numbers(source, text)
+        if added:
+            print(f"Opening block: dropped, it states numbers not in the transcript: {added}")
+            return None
+        return text
 
     def analyze_subject_matter(self, transcript: str) -> Dict[str, Any]:
         """Analyze the subject matter of the transcript to identify key topics."""
